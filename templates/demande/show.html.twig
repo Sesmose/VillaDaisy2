@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande{% endblock %}
+
+{% block body %}
+    <h1>Demande</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ demande.id }}</td>
+            </tr>
+            <tr>
+                <th>Date_debut</th>
+                <td>{{ demande.dateDebut ? demande.dateDebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date_fin</th>
+                <td>{{ demande.dateFin ? demande.dateFin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ demande.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ demande.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ demande.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ demande.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ demande.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ demande.ville }}</td>
+            </tr>
+            <tr>
+                <th>Cp</th>
+                <td>{{ demande.cp }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ demande.createdAt ? demande.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ demande.updatedAt ? demande.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('demande_index') }}">back to list</a>
+
+    <a href="{{ path('demande_edit', {'id': demande.id}) }}">edit</a>
+
+    {{ include('demande/_delete_form.html.twig') }}
+{% endblock %}
