@@ -39,13 +39,24 @@ class DemandeController extends AbstractController {
 			$entityManager->persist($demande);
 			$entityManager->flush();
 
-			$message = (new \Swift_Message('Nouvelle demande de réservation de ' . ' ' . $contactFormData->getNom() . ' ' . $contactFormData->getPrenom() . ' Plus de détails..'))
+			$message = (new \Swift_Message('Nouvelle demande de réservation de ' . ' ' . $contactFormData->getNom() . ' ' . $contactFormData->getPrenom()))
 				->setFrom($contactFormData->getEmail())
 				->setTo('villadaisycorse@gmail.com')
 				->setBody(
-					$contactFormData->getTelephone() . '
-            mail de l\'expediteur: ' . $contactFormData->getEmail() . ' et le reste ici.',
-					'text/plain'
+					'<html>' .
+					' <body>' .
+					'<p> Nouvelle demande de réservation de la part de : ' . $contactFormData->getNom() . ' ' . $contactFormData->getPrenom() . '.<br/>
+                    Pour le période du ' . date_format($contactFormData->getDateDebut(), "Y-m-d") . '<br/>
+                    Au ' . date_format($contactFormData->getDateFin(), "Y-m-d") . '<br/>
+                    </p>
+                    <p> Informations supplémentaire : <br/>
+                    Tel : ' . $contactFormData->getTelephone() . '<br/>
+                    Adresse : ' . $contactFormData->getAdresse() . '<br/>
+                    Code Postal : ' . $contactFormData->getCp() . '<br/>
+                    Adresse Mail : ' . $contactFormData->getEmail() . '</p>' .
+					' </body>' .
+					'</html>',
+					'text/html'
 				);
 			$mailer->send($message);
 
