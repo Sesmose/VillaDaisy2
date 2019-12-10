@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Villa Daisy{% endblock %}</title>
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
         <!-- Bootstrap core CSS -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <!-- Material Design Bootstrap -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+
+            <style>
+                nav {
+                    background-color: rgba(0, 0, 0, 0.3); }
+            </style>
+        {% endblock %}
     </head>
-    <body>
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+    <nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar">
 
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Villa Daisy</a>
 
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -30,44 +35,36 @@
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="#">Accueil
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="#">Notre Villa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="#">Réservez</a>
                 </li>
 
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                       aria-haspopup="true" aria-expanded="false">Découvrez la Corse du Sud</a>
                     <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Pour les sportifs</a>
+                        <a class="dropdown-item" href="#">A deux</a>
+                        <a class="dropdown-item" href="#">Pour se ressourcer</a>
                     </div>
                 </li>
 
             </ul>
             <!-- Links -->
-
-            <form class="form-inline">
-                <div class="md-form my-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                </div>
-            </form>
         </div>
-        <!-- Collapsible content -->
-
     </nav>
-    <!--/.Navbar-->
+      <!--/.Navbar-->
         {% block body %}{% endblock %}
-    <!-- Footer -->
-    <footer class="page-footer font-small blue pt-4">
+       <!-- Footer -->
+    <footer class="page-footer font-small black pt-4 wow fadeIn">
 
         <!-- Footer Links -->
         <div class="container-fluid text-center text-md-left">
@@ -79,7 +76,7 @@
                 <div class="col-md-6 mt-md-0 mt-3">
 
                     <!-- Content -->
-                    <h5 class="text-uppercase">Footer Content</h5>
+                    <h5 class="text-uppercase"></h5>
                     <p>Here you can use rows and columns to organize your footer content.</p>
 
                 </div>
@@ -91,50 +88,28 @@
                 <div class="col-md-3 mb-md-0 mb-3">
 
                     <!-- Links -->
-                    <h5 class="text-uppercase">Links</h5>
+                    <h5 class="text-uppercase">Liens utiles</h5>
 
                     <ul class="list-unstyled">
                         <li>
-                            <a href="#!">Link 1</a>
+                            <a href="#!">CGU</a>
                         </li>
                         <li>
-                            <a href="#!">Link 2</a>
+                            <a href="#!">Notre villa</a>
                         </li>
                         <li>
-                            <a href="#!">Link 3</a>
+                            <a href="#!">La Corse du Sud</a>
                         </li>
                         <li>
-                            <a href="#!">Link 4</a>
+                            <a href="#!">Office du tourisme de Porto-Vecchio</a>
+                        </li>
+                        <li>
+                            <a href="#!">Nous contacter</a>
                         </li>
                     </ul>
 
                 </div>
                 <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-3 mb-md-0 mb-3">
-
-                    <!-- Links -->
-                    <h5 class="text-uppercase">Links</h5>
-
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#!">Link 1</a>
-                        </li>
-                        <li>
-                            <a href="#!">Link 2</a>
-                        </li>
-                        <li>
-                            <a href="#!">Link 3</a>
-                        </li>
-                        <li>
-                            <a href="#!">Link 4</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <!-- Grid column -->
-
             </div>
             <!-- Grid row -->
 
@@ -143,7 +118,7 @@
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2018 Copyright:
-            <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+            <a href="https://mdbootstrap.com/education/bootstrap/">WebForce3</a>
         </div>
         <!-- Copyright -->
 
@@ -157,6 +132,11 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
-        {% block javascripts %}{% endblock %}
-    </body>
+        {% block javascripts %}
+            <script>
+                new WOW().init();
+            </script>
+
+
+        {% endblock %}
 </html>
