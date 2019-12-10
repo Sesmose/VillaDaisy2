@@ -10,262 +10,381 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
     {% block stylesheets %}
+<style>
+    body{
+        background-color: #90a4ae;
+    }
+    footer{
+        background-color: rgb(0.2,0.2,0.2);
+    }
+    .container{
+        background-color: white;
+    }
 
-        <style>
-            .container-fluid.main{
-                position: relative; /* To make the navbar positions relative to this container */
-                padding: 0;
-            }
-            .dropdown-menu{
-                border-radius: 0px;
-                border: 0;
-                box-shadow: none;
-                padding: 10px;
-                color: #ffffff;
-                background-color: transparent;
-            }
-            .navbar {
-                background-image: none;
-                background-color: rgba(0,0,0,0.3); /* Make the menu become transparent */
-                border-radius: 0px;
-                border: 0;
-                box-shadow: none;
-                padding: 10px;
-                position: absolute; /* Make the menu out of the document flow so it can placed anywhere without disturbing other widgets */
-                top: 0;
-                left: 0;
-                right: 0;
-                z-index: 10; /* If you delete this line, your menu link won't be clicked because it is behind the background. Applying this code bring the menu in front of the background */
-            }
+    .carousel-item {
+        height: 80vh;
+        min-height: 350px;
+        background: no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .navbar {
+        background-image: none;
+        background-color: rgba(0.2,0.2,0.2,0.3);
+        border-radius: 0px;
+        border: 0;
+        box-shadow: none;
+        padding: 10px;
+        position: absolute; /* Make the menu out of the document flow so it can placed anywhere without disturbing other widgets */
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10; /* If you delete this line, your menu link won't be clicked because it is behind the background. Applying this code bring the menu in front of the background */
+    }
 
-            .navbar .navbar-brand {
-                color: #ffffff;
-                font-size: 20px;
-            }
+    .navbar .navbar-brand {
+        color: #ffffff;
+        font-size: 20px;
+    }
 
-            .navbar .navbar-brand:hover,
-            .navbar .navbar-brand:focus {
-                color: #ffffff;
-                background-color: transparent;
-            }
+    .navbar .navbar-brand:hover,
+    .navbar .navbar-brand:focus {
+        color: #ffffff;
+        background-color: transparent;
+    }
 
-            .navbar .navbar-nav > li > a {
-                color: #ffffff;
-            }
+    .navbar .navbar-nav > li > a {
+        color: #ffffff;
+    }
 
-            .navbar .navbar-nav > li > a:hover,
-            .navbar .navbar-nav > li > a:focus {
-                color: #ffffff;
-                background-color: transparent;
-            }
-            .navbar .dropdown-menu a{
-                color: #ffffff;
-                background-color: transparent;
-            }
-            .navbar .dropdown-menu a:hover{
-                background-color: rgba(0.3,0.3,0.3,0.4);
-            }
-            .navbar .navbar-toggler {
-                border-color: transparent;
-            }
+    .navbar .navbar-nav > li > a:hover,
+    .navbar .navbar-nav > li > a:focus {
+        color: #ffffff;
+        background-color: transparent;
+    }
 
-            .navbar .navbar-toggler:hover {
-                background-color: transparent;
-            }
+    .dropdown-menu{
+        background-color: transparent;
+        border-color: transparent;
+    }
+    .navbar .dropdown-menu a {
+        color: #ffffff;
+    }
+    .dropdown-menu .dropdown-item:focus{
+        background-color: rgba(0.2,0.2,0.2,0.3);
+    }
+    .dropdown-menu .dropdown-item:hover {
+        background-color: rgba(0.2,0.2,0.2,0.3);
+    }
+    .covertext {
+        position: absolute; /* To make the div to be place anywhere. It is out of the document flow */
+        top: 205px; /* The distance between the div with the top of document */
+        left: 0px; /* Make the div full width */
+        right: 0px; /* Make the div full width */
+        background-color: rgba(0.2,0.2,0.2,0.3);
 
-            .navbar .navbar-toggler:focus {
-                background-color: transparent;
-            }
+    }
+    .title {
+        font-weight: 600;
+        font-size: 60px;
+        color: #ffffff;
+        text-align: center;
+    }
 
-            .navbar .navbar-toggle .icon-bar {
-                background-color: #ffffff;
-            }
+    .subtitle {
+        font-size: 23px;
+        color: #ffffff;
+        text-align: center;
+    }
 
-            .carousel .background {
-                background-position: center center;
-                background-size: 100% 100%;
-                background-repeat: no-repeat;
-                height: 700px;
-            }
+    .explore {
+        text-align: center;
+        margin-top: 10px;
+    }
 
-            @media (max-width:991px) {
-                .carousel .background {
-                    background-size: cover; /* To make the background image looks good */
-                }
-            }
+    .explore .btn-lg,
+    .explore .btn-lg:hover {
+        border-radius: 30px;
+        padding: 15px 25px;
+        font-size: 22px;
+        background-image: none;
+        background-color: #FF4000;
+        border-color: #FF4000;
+        color: #ffffff;
+    }
 
-            .carousel .background.a {
-                background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("{{asset('medias/Corse/P1090661.JPG')}}");
-            }
+    .btn,
+    .btn:hover {
+        border-radius: 0px;
+        background-image: none;
+        background-color: #FF4000;
+        border-color: #FF4000;
+        color: #ffffff;
+        margin-bottom: 20px;
+        box-shadow: none;
+        outline: none;
+    }
 
-            .carousel .background.b {
-                background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  url("{{asset('medias/Corse/P1090661.JPG')}}");
-            }
+    .btn:focus,
+    .btn:active:focus,
+    .btn.active:focus,
+    .btn.focus,
+    .btn:active.focus,
+    .btn.active.focus {
+        color: #ffffff;
+        outline: none;
+    }
 
-            .carousel .background.c {
-                background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  url("{{asset('medias/Corse/P1090661.JPG')}}");
-            }
-
-            .carousel-fade .carousel-inner .item {
-                opacity: 0;
-                transition: opacity 0.5s; /* The 0.5s describes the duration to make the opacity from 0 to 1 */
-            }
-
-            .carousel-fade .carousel-inner .active {
-                opacity: 1;
-            }
-
-            /* CSS Hack to trigger GPU for smooth transition */
-            @media all and (transform-3d),
-            (-webkit-transform-3d) {
-                .carousel-fade .carousel-inner > .item.next,
-                .carousel-fade .carousel-inner > .item.active.right {
-                    opacity: 0;
-                    -webkit-transform: translate3d(0, 0, 0);
-                    transform: translate3d(0, 0, 0);
-                }
-                .carousel-fade .carousel-inner > .item.prev,
-                .carousel-fade .carousel-inner > .item.active.left {
-                    opacity: 0;
-                    -webkit-transform: translate3d(0, 0, 0);
-                    transform: translate3d(0, 0, 0);
-                }
-                .carousel-fade .carousel-inner > .item.next.left,
-                .carousel-fade .carousel-inner > .item.prev.right,
-                .carousel-fade .carousel-inner > .item.active {
-                    opacity: 1;
-                    -webkit-transform: translate3d(0, 0, 0);
-                    transform: translate3d(0, 0, 0);
-                }
-            }
-            /* CSS Hack to trigger GPU for smooth transition */
-
-            .covertext {
-                position: absolute; /* To make the div to be place anywhere. It is out of the document flow */
-                top: 200px; /* The distance between the div with the top of document */
-                left: 0px; /* Make the div full width */
-                right: 0px; /* Make the div full width */
-            }
-
-            .title {
-                font-weight: 600;
-                font-size: 60px;
-                color: #ffffff;
-                text-align: center;
-            }
-
-            .subtitle {
-                font-size: 23px;
-                color: #ffffff;
-                text-align: center;
-            }
-
-            .explore {
-                text-align: center;
-                margin-top: 10px;
-            }
-
-            .explore .btn-lg,
-            .explore .btn-lg:hover {
-                border-radius: 30px;
-                padding: 15px 25px;
-                font-size: 22px;
-                background-image: none;
-                background-color: #FF4000;
-                border-color: #FF4000;
-                color: #ffffff;
-            }
-
-            .btn,
-            .btn:hover {
-                border-radius: 0px;
-                background-image: none;
-                background-color: #FF4000;
-                border-color: #FF4000;
-                color: #ffffff;
-                margin-bottom: 20px;
-                box-shadow: none;
-                outline: none;
-            }
-
-            .btn:focus,
-            .btn:active:focus,
-            .btn.active:focus,
-            .btn.focus,
-            .btn:active.focus,
-            .btn.active.focus {
-                color: #ffffff;
-                outline: none;
-            }
-        </style>
+</style>
     {% endblock %}
-</head>
-        <header>
-            <div class="container-fluid main">
-             <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg dark scrolling-navbar">
 
-                <!-- Navbar brand -->
-                <a class="navbar-brand" href="#">Villa Daisy</a>
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#">Villa Daisy</a>
 
-                <!-- Collapse button -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-                        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <!-- Collapsible content -->
-                <div class="collapse navbar-collapse" id="basicExampleNav">
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
 
-                    <!-- Links -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Notre Villa</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Réservez</a>
-                        </li>
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Notre Villa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Réservez</a>
+                </li>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Découvrez la Corse du Sud</a>
+                    <div class="dropdown-menu mt-1" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Pour les sportifs</a>
+                        <a class="dropdown-item" href="#">A deux</a>
+                        <a class="dropdown-item" href="#">Pour se ressourcer</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Nous Contacter</a>
+                </li>
 
-                        <!-- Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">Découvrez la Corse du Sud</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Pour les sportifs</a>
-                                <a class="dropdown-item" href="#">A deux</a>
-                                <a class="dropdown-item" href="#">Pour se ressourcer</a>
-                            </div>
-                        </li>
+            </ul>
+            <!-- Links -->
+        </div>
+    </nav>
+    <header>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <!-- Slide One - Set the background image for this slide in the line below -->
+                <div class="carousel-item active" style="background-image: url('{{ asset('medias/Corse/P1090711.JPG') }}')">
 
-                    </ul>
-                    <!-- Links -->
                 </div>
-            </nav>
-            <!--/.Navbar-->
+                <!-- Slide Two - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('{{ asset('medias/Corse/P1090664.JPG') }}')">
 
+                </div>
+                <!-- Slide Three - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('{{ asset('medias/Corse/P1090710.JPG') }}')">
 
-            <div id="myCarousel" class="carousel carousel-fade slide" data-ride="carousel" data-interval="1000">
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active background a"></div>
-                    <div class="item background b"></div>
-                    <div class="item background c"></div>
                 </div>
             </div>
-
-            <div class="covertext">
-                <div class="col-lg-10" style="float:none; margin:0 auto;">
-                    <h1 class="title">Villa Daisy</h1>
-                    <h3 class="subtitle">Venez découvrir les merveilles de la Corse</h3>
-                </div>
-                <div class="col-xs-12 explore">
-                    <a href="#"><button type="button" class="btn btn-lg explorebtn">Réservez</button></a>
-                </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div class="covertext">
+            <div class="col-lg-10" style="float:none; margin:0 auto;">
+                <h1 class="title">Villa Daisy</h1>
+                <h3 class="subtitle">Venez découvrir les merveilles de la Corse</h3>
             </div>
+            <div class="col-xs-12 explore">
+                <a href="#"><button type="button" class="btn btn-lg explorebtn">Demande de réservation</button></a>
+            </div>
+        </div>
+    </header>
+
+{% block body %}
+    <!--PARTIE BODY DU HOME-->
+    <div class="container my-5 py-5 z-depth-1">
+
+
+        <!--Section: Content-->
+        <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+
+            <!--Grid row-->
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 mb-md-0">
+
+                    <h3 class="font-weight-bold">La Maison</h3>
+
+                    <p class="text-muted">Construit en 2018, nous vous proposons à la location, un petit nid douillet de 30 m².
+                        Bénéficiant d’un jardin et d’un parking privé, celui-ci sera idéalement aménagé pour deux personnes et deux enfants maximum.
+                        Situé sur la commune de Porto-Vecchio, son environnement calme et arboré, vous apportera quiétude et repos.
+                        Enfin, de par sa localisation le centre-ville n’est qu’à 5 km et les premières plages de Cala Rossa, de Saint Cyprien et de bien d’autres à 6.5 km.</p>
+
+                    <a class="btn btn-grey btn-md ml-0" href="#" role="button">Découvrir la maison<i class="fa fa-home ml-2"></i></a>
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 mb-md-0">
+
+                    <!--Image-->
+                    <div class="view overlay z-depth-1-half">
+                        <img src="{{ asset('medias/Corse/P1090708.JPG') }}" class="img-fluid"
+                             alt="la Villa Daisy">
+                        <a href="#">
+                            <div class="mask rgba-white-light"></div>
+                        </a>
+                    </div>
+
+                </div>
+                <!--Grid column-->
 
             </div>
-        </header>
-{% block body %}{% endblock %}
+            <!--Grid row-->
+
+
+        </section>
+        <!--Section: Content-->
+
+    </div>
+
+
+
+    <div class="container my-5 py-5 z-depth-1">
+
+
+        <!--Section 2: Content-->
+        <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 mb-md-0 order-2 order-lg-1">
+
+                    <!--Image-->
+                    <div class="view overlay z-depth-1-half">
+                        <img src="{{ asset('medias/Corse/activite.jpg') }}" class="img-fluid"
+                             alt="activites en Corse">
+                        <a href="#">
+                            <div class="mask rgba-white-light"></div>
+                        </a>
+                    </div>
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 mb-md-0 order-1 order-lg-2">
+
+                    <h3 class="font-weight-bold">Les Activités</h3>
+
+                    <p class="text-muted">Que vous soyez de nature intrépide ou bien plus téméraires, la Corse a tout à vous offrir.
+                        Les activités sportives et ludiques sont nombreuses (randonnée, course à pied, golf...). Vous trouverez également
+                        des activités plus "extrèmes" comme des tours d'hélicoptère, les sports nautiques. Enfin pour les amoureux,
+                        les restaurants, balades et autre moments détente foisonnent.
+                        Mais en parler ne suffit pas, découvrez toutes les activités en détails grâce à ce lien.
+                    </p>
+
+                    <a class="btn btn-grey btn-md ml-0" href="#" role="button">Découvrir les activités<i class="fa fa-hiking ml-2"></i></a>
+
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+
+
+        </section>
+        <!--Section: Content-->
+
+    </div>
+
+
+
+
+
+
+    <div class="container my-5 py-5 z-depth-1">
+
+
+        <!--Section: Content-->
+        <section class="px-md-5 mx-md-5 text-center text-lg-left dark-grey-text">
+
+            <!--Grid row-->
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 mb-md-0">
+
+                    <h3 class="font-weight-bold">La Nature</h3>
+
+                    <p class="text-muted">
+                        La Corse est connue et reconnue pour ses paysages à couper le souffle ainsi que ses magnifiques golfes et criques .
+                        Amoureux de la nature et désireux de se reconnecter avec la faune et la flore seront ravis de passer quelques temps sur cette
+                        île paradisiaque.
+                    </p>
+
+                    <a class="btn btn-grey btn-md ml-0" href="#" role="button">Découvrir la Corse<i class="fa fa-leaf ml-2"></i></a>
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-4 mb-md-0">
+
+                    <!--Image-->
+                    <div class="view overlay z-depth-1-half">
+                        <img src="{{ asset('medias/Corse/P1090673.JPG') }}" class="img-fluid"
+                             alt="nature Corse">
+                        <a href="#">
+                            <div class="mask rgba-white-light"></div>
+                        </a>
+                    </div>
+
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+
+
+        </section>
+        <!--Section: Content-->
+
+
+
+
+    </div>
+
+
+
+
+
+
+{% endblock %}
 <!-- Footer -->
-<footer class="page-footer font-small black pt-4 wow fadeIn">
+<footer class="page-footer font-small elegant-color-dark pt-4 wow fadeIn">
 
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">
@@ -278,7 +397,6 @@
 
                 <!-- Content -->
                 <h5 class="text-uppercase"></h5>
-                <p>Here you can use rows and columns to organize your footer content.</p>
 
             </div>
             <!-- Grid column -->
@@ -334,12 +452,13 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
 {% block javascripts %}
-    <script>
-        new WOW().init();
+    <script type="text/javascript">
 
-        $('.carousel').carousel({
-            pause: "false" /* Change to true to make it paused when your mouse cursor enter the background */
-        });
+        new WOW().init();
+       $('.carousel').carousel({
+           interval: 3000,
+           pause: true
+       });
     </script>
 
 
