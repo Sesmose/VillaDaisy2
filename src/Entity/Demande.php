@@ -7,210 +7,181 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DemandeRepository")
  */
-class Demande
-{
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+class Demande {
+	/**
+	 * @ORM\Id()
+	 * @ORM\GeneratedValue()
+	 * @ORM\Column(type="integer")
+	 */
+	private $id;
 
-    /**
-     * @ORM\Column(type="date")
-     */
-    private $date_debut;
+	/**
+	 * @ORM\Column(type="date")
+	 */
+	private $date_debut;
 
-    /**
-     * @ORM\Column(type="date")
-     */
-    private $date_fin;
+	/**
+	 * @ORM\Column(type="date")
+	 */
+	private $date_fin;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $nom;
+	/**
+	 * @ORM\Column(type="string", length=100)
+	 */
+	private $nom;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $prenom;
+	/**
+	 * @ORM\Column(type="string", length=100)
+	 */
+	private $prenom;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $email;
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $email;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $telephone;
+	/**
+	 * @ORM\Column(type="integer")
+	 */
+	private $telephone;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $adresse;
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $adresse;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $ville;
+	/**
+	 * @ORM\Column(type="string", length=100)
+	 */
+	private $ville;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $cp;
+	/**
+	 * @ORM\Column(type="integer")
+	 */
+	private $cp;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $created_at;
+	/**
+	 * @ORM\Column(type="datetime")
+	 */
+	private $created_at;
 
+	/**
+	 * @ORM\Column(type="datetime", nullable=true)
+	 */
+	private $updated_at;
 
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $updated_at;
+	public function getId():  ? int {
+		return $this->id;
+	}
 
+	public function getDateDebut() :  ? \DateTimeInterface {
+		return $this->date_debut;
+	}
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+	public function setDateDebut(\DateTimeInterface $date_debut) : self{
+		$this->date_debut = $date_debut;
 
-    public function getDateDebut(): ?\DateTimeInterface
-    {
-        return $this->date_debut;
-    }
+		return $this;
+	}
 
-    public function setDateDebut(\DateTimeInterface $date_debut): self
-    {
-        $this->date_debut = $date_debut;
+	public function getDateFin():  ? \DateTimeInterface {
+		return $this->date_fin;
+	}
 
-        return $this;
-    }
+	public function setDateFin(\DateTimeInterface $date_fin) : self{
+		$this->date_fin = $date_fin;
 
-    public function getDateFin(): ?\DateTimeInterface
-    {
-        return $this->date_fin;
-    }
+		return $this;
+	}
 
-    public function setDateFin(\DateTimeInterface $date_fin): self
-    {
-        $this->date_fin = $date_fin;
+	public function getNom():  ? string {
+		return $this->nom;
+	}
 
-        return $this;
-    }
+	public function setNom(string $nom) : self{
+		$this->nom = $nom;
 
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
+		return $this;
+	}
 
-    public function setNom(string $nom): self
-    {
-        $this->nom = $nom;
+	public function getPrenom():  ? string {
+		return $this->prenom;
+	}
 
-        return $this;
-    }
+	public function setPrenom(string $prenom) : self{
+		$this->prenom = $prenom;
 
-    public function getPrenom(): ?string
-    {
-        return $this->prenom;
-    }
+		return $this;
+	}
 
-    public function setPrenom(string $prenom): self
-    {
-        $this->prenom = $prenom;
+	public function getEmail():  ? string {
+		return $this->email;
+	}
 
-        return $this;
-    }
+	public function setEmail(string $email) : self{
+		$this->email = $email;
 
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
+		return $this;
+	}
 
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
+	public function getTelephone():  ? int {
+		return $this->telephone;
+	}
 
-        return $this;
-    }
+	public function setTelephone(int $telephone) : self{
+		$this->telephone = $telephone;
 
-    public function getTelephone(): ?int
-    {
-        return $this->telephone;
-    }
+		return $this;
+	}
 
-    public function setTelephone(int $telephone): self
-    {
-        $this->telephone = $telephone;
+	public function getAdresse():  ? string {
+		return $this->adresse;
+	}
 
-        return $this;
-    }
+	public function setAdresse(string $adresse) : self{
+		$this->adresse = $adresse;
 
-    public function getAdresse(): ?string
-    {
-        return $this->adresse;
-    }
+		return $this;
+	}
 
-    public function setAdresse(string $adresse): self
-    {
-        $this->adresse = $adresse;
+	public function getVille():  ? string {
+		return $this->ville;
+	}
 
-        return $this;
-    }
+	public function setVille(string $ville) : self{
+		$this->ville = $ville;
 
-    public function getVille(): ?string
-    {
-        return $this->ville;
-    }
+		return $this;
+	}
 
-    public function setVille(string $ville): self
-    {
-        $this->ville = $ville;
+	public function getCp():  ? int {
+		return $this->cp;
+	}
 
-        return $this;
-    }
+	public function setCp(int $cp) : self{
+		$this->cp = $cp;
 
-    public function getCp(): ?int
-    {
-        return $this->cp;
-    }
+		return $this;
+	}
 
-    public function setCp(int $cp): self
-    {
-        $this->cp = $cp;
+	public function getCreatedAt():  ? \DateTimeInterface {
+		return $this->created_at;
+	}
 
-        return $this;
-    }
+	public function setCreatedAt() : self{
+		$this->created_at = new \DateTime('now', new \DateTimeZone("Europe/Paris"));
 
-    public function getCreatedAt(): ?\DateTimeInterface
-    {
-        return $this->created_at;
-    }
+		return $this;
+	}
 
-    public function setCreatedAt(\DateTimeInterface $created_at): self
-    {
-        $this->created_at = $created_at;
+	public function getUpdatedAt():  ? \DateTimeInterface {
+		return $this->updated_at;
+	}
 
-        return $this;
-    }
+	public function setUpdatedAt() : self{
+		$this->updated_at = new \DateTime('now', new \DateTimeZone("Europe/Paris"));
 
-
-
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updated_at;
-    }
-
-    public function setUpdatedAt(?\DateTimeInterface $updated_at): self
-    {
-        $this->updated_at = $updated_at;
-
-        return $this;
-    }
-
+		return $this;
+	}
 
 }
