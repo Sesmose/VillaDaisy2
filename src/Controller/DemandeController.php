@@ -60,7 +60,7 @@ class DemandeController extends AbstractController {
 				);
 			$mailer->send($message);
 
-			//return $this->redirectToRoute('demande_index');
+			return $this->redirectToRoute('demande_index');
 		}
 
 		return $this->render('demande/new.html.twig', [
