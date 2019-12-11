@@ -4,3 +4,55 @@
 #        - App\Entity\Product
 #        - App\Entity\Category
 #        - App\Entity\User
+
+easy_admin:
+  formats:
+    date:     'd/m/Y'
+    datetime: 'd/m/Y H:i:s'
+    number: '%010s'
+  entities:
+    Booking:
+      class: App\Entity\Booking
+      help: 'Gérer les réservations'
+      label: 'Réservation'
+      list:
+        title: 'Réservations les plus récentes'
+        fields: ['Numéro', 'Début', 'Fin', 'Titre', 'Crée le', 'Modifié le', 'Demande correspondante']
+        sort: 'created_at'
+      search:
+        sort: ['created_at', 'ASC']
+
+    Demande:
+      class: App\Entity\Demande
+      help: 'Gérer les demandes'
+      label: 'Demande de réservation'
+      list:
+        title: 'Demandes de réservation les plus récentes'
+        sort: 'nom'
+      disabled_actions: ['edit']
+      search:
+        sort: ['nom', 'ASC']
+
+
+  site_name: 'Villa Daisy'
+  design:
+    menu:
+      - label: 'Calendrier'
+        icon: 'calendar'
+        children:
+          - { label: 'Mon Calendrier', icon: 'calendar', route: 'booking_index'}
+          - { label: 'Liste des réservations', icon: 'list', entity: 'Booking'}
+      - label: 'Demande'
+        icon: 'user'
+        children:
+          - { label: 'Nouvelles demandes', icon: 'plus', route: 'demande_index'}
+          - { label: 'Liste des demandes', icon: 'list', entity: 'Demande'}
+
+      - label: 'Plan du site'
+        icon: 'sitemap'
+        children:
+          - { label: 'Accueil', icon: 'home', route: 'home'}
+          - { label: 'Villa', icon: 'home', route: 'home'}
+          - { label: 'Activités', icon: 'hiking', route: 'home'}
+          - { label: 'Nature', icon: 'leaf', route: 'home'}
+    brand_color: '#37474f'
