@@ -4,8 +4,100 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c35ee7f54eea923c2d05fd78b0747238",
+    "content-hash": "e2a80a51e43d5092e4a5e5e4c9ce33fc",
     "packages": [
+        {
+            "name": "captcha-com/captcha",
+            "version": "4.2.5",
+            "source": {
+                "type": "git",
+                "url": "https://git.captcha.com/botdetect-php-captcha-library.git",
+                "reference": "4b8b642509bfc63d2f295dccf1c1b4d0e2266a15"
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "captcha-com/cakephp-captcha": "CakePHP Captcha Plugin -- BotDetect PHP CAPTCHA generator integration for the CakePHP framework.",
+                "captcha-com/laravel-captcha": "Laravel Captcha Package -- BotDetect PHP CAPTCHA generator integration for the Laravel framework.",
+                "captcha-com/symfony-captcha-bundle": "Symfony Captcha Bundle -- BotDetect PHP CAPTCHA generator integration for the Symfony framework."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Captcha Support",
+                    "email": "botdetect.support@captcha.com",
+                    "homepage": "https://captcha.com/php-captcha.html"
+                }
+            ],
+            "description": "Captcha Generator -- BotDetect PHP CAPTCHA Free composer package.",
+            "homepage": "https://captcha.com/php-captcha.html",
+            "keywords": [
+                "captcha",
+                "captcha generator",
+                "captcha library",
+                "php captcha"
+            ],
+            "time": "2019-07-22T16:36:53+00:00"
+        },
+        {
+            "name": "captcha-com/symfony-captcha-bundle",
+            "version": "4.2.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/captcha-com/symfony-captcha-bundle.git",
+                "reference": "fd071c3f36d646ff87b591ddb3ea531c5f3678c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/captcha-com/symfony-captcha-bundle/zipball/fd071c3f36d646ff87b591ddb3ea531c5f3678c2",
+                "reference": "fd071c3f36d646ff87b591ddb3ea531c5f3678c2",
+                "shasum": ""
+            },
+            "require": {
+                "captcha-com/captcha": "4.*",
+                "php": ">=5.3.9"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Captcha\\Bundle\\CaptchaBundle\\": "/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Symfony Captcha Bundle Support",
+                    "email": "botdetect.support@captcha.com",
+                    "homepage": "https://captcha.com/doc/php/symfony-captcha-bundle-quickstart.html"
+                }
+            ],
+            "description": "Symfony Captcha Bundle -- BotDetect PHP Captcha generator integration for the Symfony framework.",
+            "homepage": "https://captcha.com/doc/php/symfony-captcha-bundle-quickstart.html",
+            "keywords": [
+                "botdetect",
+                "captcha",
+                "captcha bundle",
+                "captcha generator",
+                "symfony captcha",
+                "symfony captcha bundle"
+            ],
+            "time": "2019-08-08T16:56:37+00:00"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.8.0",
@@ -5722,23 +5814,23 @@
         },
         {
             "name": "tattali/calendar-bundle",
-            "version": "v1.1.6",
+            "version": "v1.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tattali/CalendarBundle.git",
-                "reference": "a4378ad9d90e9e562c891729a8e2d70e81b0caaa"
+                "reference": "4ea0cce98455ca1300ed6fbef6b2f7c3561b3f7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tattali/CalendarBundle/zipball/a4378ad9d90e9e562c891729a8e2d70e81b0caaa",
-                "reference": "a4378ad9d90e9e562c891729a8e2d70e81b0caaa",
+                "url": "https://api.github.com/repos/tattali/CalendarBundle/zipball/4ea0cce98455ca1300ed6fbef6b2f7c3561b3f7c",
+                "reference": "4ea0cce98455ca1300ed6fbef6b2f7c3561b3f7c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1",
-                "symfony/dependency-injection": "^3.4 || ^4.0",
-                "symfony/event-dispatcher": "^3.4 || ^4.0",
-                "symfony/framework-bundle": "^3.4 || ^4.0"
+                "symfony/dependency-injection": "^3.4 || ^4.0 || ^5.0",
+                "symfony/event-dispatcher": "^3.4 || ^4.0 || ^5.0",
+                "symfony/framework-bundle": "^3.4 || ^4.0 || ^5.0"
             },
             "require-dev": {
                 "phpspec/prophecy": "^1.8",
@@ -5776,7 +5868,7 @@
                 "symfony",
                 "symfony calendar"
             ],
-            "time": "2019-10-20T22:33:11+00:00"
+            "time": "2019-11-19T09:58:01+00:00"
         },
         {
             "name": "twig/twig",
@@ -5895,24 +5987,27 @@
         },
         {
             "name": "zendframework/zend-code",
-            "version": "3.4.0",
+            "version": "3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-code.git",
-                "reference": "46feaeecea14161734b56c1ace74f28cb329f194"
+                "reference": "268040548f92c2bfcba164421c1add2ba43abaaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-code/zipball/46feaeecea14161734b56c1ace74f28cb329f194",
-                "reference": "46feaeecea14161734b56c1ace74f28cb329f194",
+                "url": "https://api.github.com/repos/zendframework/zend-code/zipball/268040548f92c2bfcba164421c1add2ba43abaaa",
+                "reference": "268040548f92c2bfcba164421c1add2ba43abaaa",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1",
                 "zendframework/zend-eventmanager": "^2.6 || ^3.0"
             },
+            "conflict": {
+                "phpspec/prophecy": "<1.9.0"
+            },
             "require-dev": {
-                "doctrine/annotations": "^1.0",
+                "doctrine/annotations": "^1.7",
                 "ext-phar": "*",
                 "phpunit/phpunit": "^7.5.16 || ^8.4",
                 "zendframework/zend-coding-standard": "^1.0",
@@ -5926,7 +6021,8 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "3.4.x-dev",
-                    "dev-develop": "3.5.x-dev"
+                    "dev-develop": "3.5.x-dev",
+                    "dev-dev-4.0": "4.0.x-dev"
                 }
             },
             "autoload": {
@@ -5944,7 +6040,7 @@
                 "code",
                 "zf"
             ],
-            "time": "2019-10-05T23:18:22+00:00"
+            "time": "2019-12-10T19:21:15+00:00"
         },
         {
             "name": "zendframework/zend-eventmanager",

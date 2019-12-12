@@ -3,9 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DemandeRepository")
+ * @UniqueEntity(fields={"date_debut","date_fin","email","nom","prenom"}, message="Vous avez déjà fait cette demande de réservation")
  */
 class Demande {
 	/**
@@ -16,11 +19,16 @@ class Demande {
 	private $id;
 
 	/**
+	 * @Assert\GreaterThan("today", message="La date demandée est antérieure à celle du jour")
 	 * @ORM\Column(type="date")
 	 */
 	private $date_debut;
 
 	/**
+	 * @Assert\Expression(
+	 *     "this.getDateDebut() < this.getDateFin()",
+	 *     message="La date fin ne doit pas être antérieure à la date début"
+	 * )
 	 * @ORM\Column(type="date")
 	 */
 	private $date_fin;

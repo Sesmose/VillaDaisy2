@@ -15,4 +15,5 @@ return [
     Symfony\Bundle\WebServerBundle\WebServerBundle::class => ['dev' => true],
     CalendarBundle\CalendarBundle::class => ['all' => true],
     EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle::class => ['all' => true],
+    Captcha\Bundle\CaptchaBundle\CaptchaBundle::class => ['all' => true],
 ];

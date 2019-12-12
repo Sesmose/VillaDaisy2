@@ -34,7 +34,6 @@ class DemandeController extends AbstractController {
 		if ($form->isSubmitted() && $form->isValid()) {
 			$demande->setCreatedAt();
 			$contactFormData = $form->getData();
-
 			$entityManager = $this->getDoctrine()->getManager();
 			$entityManager->persist($demande);
 			$entityManager->flush();
@@ -46,21 +45,21 @@ class DemandeController extends AbstractController {
 					'<html>' .
 					' <body>' .
 					'<p> Nouvelle demande de réservation de la part de : ' . $contactFormData->getNom() . ' ' . $contactFormData->getPrenom() . '. <br/>
-                    Pour le période du ' . date_format($contactFormData->getDateDebut(), "Y-m-d") . '<br/>
-                    Au ' . date_format($contactFormData->getDateFin(), "Y-m-d") . '<br/>
-                    </p>
-                    <p> Informations supplémentaire : <br/>
-                    Tel : ' . $contactFormData->getTelephone() . '<br/>
-                    Adresse : ' . $contactFormData->getAdresse() . '<br/>
-                    Code Postal : ' . $contactFormData->getCp() . '<br/>
-                    Adresse Mail : ' . $contactFormData->getEmail() . '</p>' .
+				Pour le période du ' . date_format($contactFormData->getDateDebut(), "d M y") . '<br/>
+				Au ' . date_format($contactFormData->getDateFin(), "d M y") . '<br/>
+				</p>
+				<p> Informations supplémentaire : <br/>
+				Tel : ' . $contactFormData->getTelephone() . '<br/>
+				Adresse : ' . $contactFormData->getAdresse() . '<br/>
+				Code Postal : ' . $contactFormData->getCp() . '<br/>
+				Adresse Mail : ' . $contactFormData->getEmail() . '</p>' .
 					' </body>' .
 					'</html>',
 					'text/html'
 				);
 			$mailer->send($message);
+			$this->addFlash('success', 'E-mail envoyé!!');
 
-			return $this->redirectToRoute('demande_index');
 		}
 
 		return $this->render('demande/new.html.twig', [
