@@ -6,3 +6,8 @@ home:
   controller: App\Controller\HomeController::index
 logout:
   path: /logout
+
+
+maison:
+  path: /maison
+  controller: App\Controller\MaisonController::index
