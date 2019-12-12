@@ -1,13 +1,16 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: null }
+        from_database:
+            entity:
+                class: App\Entity\User
+                property: username
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: true
+            anonymous: ~
             logout:
                 path: /logout
                 target: /
@@ -23,6 +26,8 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/golf, roles: ROLE_ADMIN }
+        - { path: ^/booking, roles: ROLE_ADMIN}
+        - { path: ^/demande, roles: ROLE_ADMIN}
         # - { path: ^/profile, roles: ROLE_USER }
 
     encoders:

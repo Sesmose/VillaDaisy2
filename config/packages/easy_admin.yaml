@@ -17,7 +17,7 @@ easy_admin:
       label: 'Réservation'
       list:
         title: 'Réservations les plus récentes'
-        fields: ['Numéro', 'Début', 'Fin', 'Titre', 'Crée le', 'Modifié le', 'Demande correspondante']
+        fields: ['Numero', 'Debut', 'Fin', 'Titre', 'Cree le', 'Modifie le', 'Demande correspondante']
         sort: 'created_at'
       search:
         sort: ['created_at', 'ASC']

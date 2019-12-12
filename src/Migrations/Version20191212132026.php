@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191211142056 extends AbstractMigration
+final class Version20191212132026 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -24,6 +24,7 @@ final class Version20191211142056 extends AbstractMigration
 
         $this->addSql('ALTER TABLE booking CHANGE demande_id demande_id INT DEFAULT NULL, CHANGE end_at end_at DATETIME DEFAULT NULL, CHANGE updated_at updated_at DATETIME DEFAULT NULL');
         $this->addSql('ALTER TABLE demande CHANGE updated_at updated_at DATETIME DEFAULT NULL');
+        $this->addSql('ALTER TABLE user ADD roles JSON NOT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -33,5 +34,6 @@ final class Version20191211142056 extends AbstractMigration
 
         $this->addSql('ALTER TABLE booking CHANGE demande_id demande_id INT DEFAULT NULL, CHANGE end_at end_at DATETIME DEFAULT \'NULL\', CHANGE updated_at updated_at DATETIME DEFAULT \'NULL\'');
         $this->addSql('ALTER TABLE demande CHANGE updated_at updated_at DATETIME DEFAULT \'NULL\'');
+        $this->addSql('ALTER TABLE user DROP roles');
     }
 }
