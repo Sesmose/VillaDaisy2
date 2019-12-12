@@ -1,4 +1,22 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{% extends '@!EasyAdmin/default/layout.html.twig' %}
+
+{% block body %}
+
+
+                {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-md-2 ">{{ form_row(form.title) }}</div>
+                </div>
+            <div class="row">
+                     <div class="col-md-2">{{ form_row(form.beginAt) }}</div>
+                     <div class="col-md-2 ">{{ form_row(form.endAt) }}</div>
+                </div>
+                <div class="text-center py-4 mt-3">
+                    {{ form_rest(form) }}
+                    <button class="btn btn-outline-purple" type="submit">Valider<i
+                                class="fa fa-paper-plane-o ml-2"></i></button>
+                </div>
+                {{ form_end(form) }}
+
+{% endblock %}
+

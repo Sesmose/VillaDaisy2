@@ -1,11 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends '@!EasyAdmin/default/layout.html.twig' %}
 
-{% block title %}New Booking{% endblock %}
+{% block title %}Réservation{% endblock %}
 
 {% block body %}
-    <h1>Create new Booking</h1>
 
-    {{ include('booking/_form.html.twig') }}
-    <a href="{{ path('booking_new') }}">Create new booking</a>
-    <a href="{{ path('booking_index') }}">back to list</a>
+    <div class="container mt-4">
+        <h1>Nouvelle Réservation</h1>
+
+                {{ include('booking/_form.html.twig') }}
+                <a href="{{ path('booking_new') }}">Create new booking</a>
+                <a href="{{ path('booking_index') }}">back to list</a>
+    </div>
 {% endblock %}

@@ -11,6 +11,8 @@ easy_admin:
     datetime: 'd/m/Y H:i:s'
     number: '%010s'
   entities:
+
+#ENTITY BOOKING
     Booking:
       class: App\Entity\Booking
       help: 'Gérer les réservations'
@@ -18,10 +20,8 @@ easy_admin:
       list:
         title: 'Réservations les plus récentes'
         fields: ['Numero', 'Debut', 'Fin', 'Titre', 'Cree le', 'Modifie le', 'Demande correspondante']
-        sort: 'created_at'
-      search:
-        sort: ['created_at', 'ASC']
 
+# ENTITY DEMANDE
     Demande:
       class: App\Entity\Demande
       help: 'Gérer les demandes'
@@ -34,8 +34,12 @@ easy_admin:
         sort: ['nom', 'ASC']
 
 
+
+#DESIGN ET MODIFICATION DES LABELS
   site_name: 'Villa Daisy'
   design:
+    form_theme:
+      - '@EasyAdmin/form/bootstrap_4.html.twig'
     menu:
       - label: 'Calendrier'
         icon: 'calendar'
