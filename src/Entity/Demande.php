@@ -21,6 +21,8 @@ class Demande {
 	/**
 	 * @Assert\GreaterThan("today", message="La date demandée est antérieure à celle du jour")
 	 * @ORM\Column(type="date")
+	 * @Assert\NotNull
+	 * @Assert\NotBlank
 	 */
 	private $date_debut;
 
@@ -71,12 +73,12 @@ class Demande {
 	/**
 	 * @ORM\Column(type="datetime")
 	 */
-	private $created_at;
+	protected $created_at;
 
 	/**
 	 * @ORM\Column(type="datetime", nullable=true)
 	 */
-	private $updated_at;
+	protected $updated_at;
 
 	public function getId():  ? int {
 		return $this->id;
@@ -176,6 +178,9 @@ class Demande {
 		return $this->created_at;
 	}
 
+	/**
+	 * @ORM\PrePersist
+	 */
 	public function setCreatedAt() : self{
 		$this->created_at = new \DateTime('now', new \DateTimeZone("Europe/Paris"));
 

@@ -33,8 +33,6 @@ class BookingController extends AbstractController {
 
 		if ($form->isSubmitted() && $form->isValid()) {
 
-			$booking->setCreatedAt();
-
 			$entityManager = $this->getDoctrine()->getManager();
 			$entityManager->persist($booking);
 			$entityManager->flush();
@@ -65,8 +63,6 @@ class BookingController extends AbstractController {
 		$form->handleRequest($request);
 
 		if ($form->isSubmitted() && $form->isValid()) {
-
-			$booking->setUpdatedAt();
 
 			$this->getDoctrine()->getManager()->flush();
 
