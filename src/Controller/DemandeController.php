@@ -44,7 +44,7 @@ class DemandeController extends AbstractController {
 					'<html>' .
 					' <body>' .
 					'<p> Nouvelle demande de réservation de la part de : ' . $contactFormData->getNom() . ' ' . $contactFormData->getPrenom() . '. <br/>
-				Pour le période du ' . date_format($contactFormData->getDateDebut(), "d M y") . '<br/>
+				Pour le période du  ' . date_format($contactFormData->getDateDebut(), "d M y") . '<br/>
 				Au ' . date_format($contactFormData->getDateFin(), "d M y") . '<br/>
 				</p>
 				<p> Informations supplémentaire : <br/>
