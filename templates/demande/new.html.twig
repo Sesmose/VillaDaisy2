@@ -8,4 +8,32 @@
     {{ include('demande/_form.html.twig') }}
 
     <a href="{{ path('demande_index') }}">back to list</a>
+
+{% block stylsheets %}
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css">
+     <link rel="stylesheet" href="{{asset('bootstrap/dist/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}">
+
 {% endblock %}
+{% block javascripts %}
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/locales/bootstrap-datepicker.fr.min.js">
+	</script>
+    <script>
+        jQuery(document).ready(function() {
+            $('.js-datepicker').datepicker({
+			format: 'yyyy-mm-dd',
+            language: "fr-FR",
+            todayHighlight: true,
+            });
+
+        });
+    </script>
+
+{% endblock %}
+
+{% endblock %}
+
