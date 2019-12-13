@@ -27,7 +27,10 @@ security:
     access_control:
         - { path: ^/golf, roles: ROLE_ADMIN }
         - { path: ^/booking, roles: ROLE_ADMIN}
-        - { path: ^/demande, roles: ROLE_ADMIN}
+        - { path: ^/demande/show, roles: ROLE_ADMIN}
+        - { path: ^/demande/edit, roles: ROLE_ADMIN}
+        - { path: ^/demande/delete, roles: ROLE_ADMIN}
+
         # - { path: ^/profile, roles: ROLE_USER }
 
     encoders:

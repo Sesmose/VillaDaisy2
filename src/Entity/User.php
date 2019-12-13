@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Serializable;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -20,10 +21,14 @@ class User implements UserInterface, Serializable
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $username;
 
     /**
+     * @Assert\Email()
+     * message = "L'email '{{ value }}' n'est pas un email valide."
+     * @Assert\NotNull
      * @ORM\Column(type="string", length=255)
      */
     private $email;

@@ -17,7 +17,7 @@ class DemandeController extends AbstractController {
 	/**
 	 * @Route("/", name="demande_index", methods={"GET"})
 	 */
-	public function index(DemandeRepository $demandeRepository): Response {
+	public function indexAction(DemandeRepository $demandeRepository): Response {
 		return $this->render('demande/index.html.twig', [
 			'demandes' => $demandeRepository->findAll(),
 		]);
@@ -32,7 +32,6 @@ class DemandeController extends AbstractController {
 		$form->handleRequest($request);
 
 		if ($form->isSubmitted() && $form->isValid()) {
-			$demande->setCreatedAt();
 			$contactFormData = $form->getData();
 
 			$entityManager = $this->getDoctrine()->getManager();
@@ -71,7 +70,7 @@ class DemandeController extends AbstractController {
 	}
 
 	/**
-	 * @Route("/{id}", name="demande_show", methods={"GET"})
+	 * @Route("/show/{id}", name="demande_show", methods={"GET"})
 	 */
 	public function show(Demande $demande): Response {
 		return $this->render('demande/show.html.twig', [
@@ -87,7 +86,6 @@ class DemandeController extends AbstractController {
 		$form->handleRequest($request);
 
 		if ($form->isSubmitted() && $form->isValid()) {
-			$demande->setUpdatedAt();
 
 			$this->getDoctrine()->getManager()->flush();
 
