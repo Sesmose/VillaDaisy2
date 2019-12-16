@@ -57,7 +57,7 @@ class DemandeController extends AbstractController {
 					'text/html'
 				);
 			$mailer->send($message);
-			$this->addFlash('success', 'E-mail envoyé!!');
+			$this->addFlash('success', 'Votre demande de réservation a bien été prise en compte !');
 
 		}
 
