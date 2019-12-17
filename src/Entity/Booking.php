@@ -2,9 +2,8 @@
 
 namespace App\Entity;
 
-
-use Doctrine\ORM\Mapping as ORM;
 use DateTime;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
@@ -33,24 +32,24 @@ class Booking {
 	 */
 	private $title;
 
-    /**
-     * @var DateTime
-     * @Doctrine\ORM\Mapping\Column(type="datetime")
-     */
-    protected $created_at;
+	/**
+	 * @var DateTime
+	 * @ORM\Column(type="datetime")
+	 */
+	protected $created_at;
 
-    /**
-     * @var DateTime
-     * @Doctrine\ORM\Mapping\Column(type="datetime")
-     */
-    protected $updated_at;
+	/**
+	 * @var DateTime
+	 * @ORM\Column(type="datetime", nullable=true)
+	 */
+	protected $updated_at;
 
 	/**
 	 * @ORM\OneToOne(targetEntity="App\Entity\Demande", cascade={"persist", "remove"})
 	 */
 	private $Demande;
 
-    public function getId():  ? int {
+	public function getId():  ? int {
 		return $this->id;
 	}
 
@@ -87,34 +86,34 @@ class Booking {
 	public function getCreatedAt():  ? \DateTimeInterface {
 		return $this->created_at;
 	}
-    /**
-     * @ORM\PrePersist
-     */
-	public function setCreatedAt(){
-        try {
-            $this->created_at = new DateTime('now', new \DateTimeZone("Europe/Paris"));
-        } catch (\Exception $e) {
-        }
+	/**
+	 * @ORM\PrePersist
+	 */
+	public function setCreatedAt() {
+		try {
+			$this->created_at = new DateTime('now', new \DateTimeZone("Europe/Paris"));
+		} catch (\Exception $e) {
+		}
 
-        return $this;
+		return $this;
 	}
 
-	public function getUpdatedAt():  ? \DateTimeInterface {
+	public function getUpdatedAt() :  ? \DateTimeInterface {
 		return $this->updated_at;
 	}
-    /**
-     * @ORM\PreUpdate()
-     */
-	public function setUpdatedAt(){
-        try {
-            $this->updated_at = new DateTime('now', new \DateTimeZone("Europe/Paris"));
-        } catch (\Exception $e) {
-        }
+	/**
+	 * @ORM\PreUpdate
+	 */
+	public function setUpdatedAt() {
+		try {
+			$this->updated_at = new DateTime('now', new \DateTimeZone("Europe/Paris"));
+		} catch (\Exception $e) {
+		}
 
-        return $this;
+		return $this;
 	}
 
-	public function getDemande():  ? Demande {
+	public function getDemande() :  ? Demande {
 		return $this->Demande;
 	}
 
@@ -123,9 +122,8 @@ class Booking {
 
 		return $this;
 	}
-public function __toString()
-{
-    return $this->title;
-}
+	public function __toString() {
+		return $this->title;
+	}
 
 }

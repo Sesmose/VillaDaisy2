@@ -195,7 +195,7 @@ class Demande {
 		return $this->updated_at;
 	}
 	/**
-	 * @ORM\PreUpdate()
+	 * @ORM\PreUpdate
 	 */
 	public function setUpdatedAt() {
 		try {

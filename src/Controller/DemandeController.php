@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Booking;
 use App\Entity\Demande;
 use App\Form\DemandeType;
 use App\Repository\DemandeRepository;
@@ -134,4 +135,25 @@ class DemandeController extends AbstractController {
 
 		return $this->redirectToRoute('demande_index');
 	}
+
+	/**
+	 * @Route("/accept/{id}", name="demande_accept")
+	 */
+	public function accept(Demande $demande) {
+		$demande->getId();
+		$booking = new Booking;
+
+		$booking->setBeginAt($demande->getDateDebut());
+		$booking->setEndAt($demande->getDateFin());
+		$booking->setTitle($demande->getNom() . ' ' . $demande->getPrenom());
+
+		$entityManager = $this->getDoctrine()->getManager();
+
+		$entityManager->persist($booking);
+
+		$entityManager->flush();
+
+		return $this->redirectToRoute('booking_index');
+	}
+
 }
