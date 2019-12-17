@@ -32,18 +32,23 @@ class DemandeController extends AbstractController {
 		$form->handleRequest($request);
 		dump('coucou');
 		if ($form->isSubmitted() && $form->isValid()) {
-			$contactFormData = $form->getData();
-			$entityManager = $this->getDoctrine()->getManager();
-			$entityManager->persist($demande);
-			$entityManager->flush();
+			if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
+				$secret = '6Le08ccUAAAAAKO8xFICbArJbTfj2j7azcIo1Dyw';
+				$verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
+				$responseData = json_decode($verifyResponse);
+				if ($responseData->success) {
+					$contactFormData = $form->getData();
+					$entityManager = $this->getDoctrine()->getManager();
+					$entityManager->persist($demande);
+					$entityManager->flush();
 
-			$message = (new \Swift_Message('Nouvelle demande de réservation de ' . ' ' . $contactFormData->getNom() . ' ' . $contactFormData->getPrenom()))
-				->setFrom($contactFormData->getEmail())
-				->setTo('villadaisycorse@gmail.com')
-				->setBody(
-					'<html>' .
-					' <body>' .
-					'<p> Nouvelle demande de réservation de la part de : ' . $contactFormData->getNom() . ' ' . $contactFormData->getPrenom() . '. <br/>
+					$message = (new \Swift_Message('Nouvelle demande de réservation de ' . ' ' . $contactFormData->getNom() . ' ' . $contactFormData->getPrenom()))
+						->setFrom($contactFormData->getEmail())
+						->setTo('villadaisycorse@gmail.com')
+						->setBody(
+							'<html>' .
+							' <body>' .
+							'<p> Nouvelle demande de réservation de la part de : ' . $contactFormData->getNom() . ' ' . $contactFormData->getPrenom() . '. <br/>
 				Pour le période du  ' . date_format($contactFormData->getDateDebut(), "d M y") . '<br/>
 				Au ' . date_format($contactFormData->getDateFin(), "d M y") . '<br/>
 				</p>
@@ -52,14 +57,34 @@ class DemandeController extends AbstractController {
 				Adresse : ' . $contactFormData->getAdresse() . '<br/>
 				Code Postal : ' . $contactFormData->getCp() . '<br/>
 				Adresse Mail : ' . $contactFormData->getEmail() . '</p>' .
-					' </body>' .
-					'</html>',
-					'text/html'
+							' </body>' .
+							'</html>',
+							'text/html'
+						);
+					$mailer->send($message);
+					$this->addFlash('success', 'E-mail envoyé!!');
+				} else {
+					$this->addFlash(
+						'warning',
+						'Une Erreur est survenue avec le captcha, veuillez réessayer.'
+					);
+				}
+
+			} else {
+				$this->addFlash(
+					'danger',
+					'Captcha Requis'
 				);
-			$mailer->send($message);
-			$this->addFlash('success', 'E-mail envoyé!!');
+			}
 
 		}
+		/*if ($form->isSubmitted() && $form->isValid() && !$this->captchaverify($request->get('g-recaptcha-response'))) {
+
+			$this->addFlash(
+				'error',
+				'Captcha Requis'
+			);
+		}*/
 
 		return $this->render('demande/new.html.twig', [
 			'demande' => $demande,

@@ -12,7 +12,9 @@ class BookingType extends AbstractType {
 		$builder
 			->add('beginAt')
 			->add('endAt')
-			->add('title')
+			->add('title', null, [
+				'data' => $demande->getVille(),
+			])
 			//->add('created_at')
 			//->add('updated_at')
 		;
