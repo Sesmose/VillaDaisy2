@@ -48,7 +48,6 @@ easy_admin:
         title: 'Demandes de réservation les plus récentes'
         sort: 'nom'
         batch_actions: [ 'delete', 'created_at' ]
-      disabled_actions: ['edit']
       search:
         sort: ['nom', 'ASC']
 

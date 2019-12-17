@@ -78,7 +78,7 @@ class DemandeController extends AbstractController {
 	}
 
 	/**
-	 * @Route("/{id}/edit", name="demande_edit", methods={"GET","POST"})
+	 * @Route("/edit/{id}", name="demande_edit", methods={"GET","POST"})
 	 */
 	public function edit(Request $request, Demande $demande): Response{
 		$form = $this->createForm(DemandeType::class, $demande);
