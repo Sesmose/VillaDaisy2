@@ -52,7 +52,6 @@ class Demande {
 
 	/**
 	 * @ORM\Column(type="string")
-	 * @Assert\Regex("/^\(\d{2}\) \d{4}-\d{4}$/")
 	 */
 	private $telephone;
 

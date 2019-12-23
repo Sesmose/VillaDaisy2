@@ -154,7 +154,7 @@
     <nav class="navbar navbar-expand-lg dark scrolling-navbar">
 
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="#">Villa Daisy</a>
+        <a class="navbar-brand" href="{{ path('home') }}">Villa Daisy</a>
 
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -171,7 +171,7 @@
                     <a class="nav-link" href="{{ path('maison') }}">Notre Villa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Réservez</a>
+                    <a class="nav-link" href="{{ path('demande_new') }}">Réservez</a>
                 </li>
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
@@ -227,7 +227,7 @@
                 <h3 class="subtitle">Venez découvrir les merveilles de la Corse</h3>
             </div>
             <div class="col-xs-12 explore">
-                <a href="#"><button type="button" class="btn btn-lg explorebtn">Demande de réservation</button></a>
+                <a href="{{ path('demande_new') }}"><button type="button" class="btn btn-lg explorebtn">Demande de réservation</button></a>
             </div>
         </div>
     </header>
@@ -253,7 +253,7 @@
                         Situé sur la commune de Porto-Vecchio, son environnement calme et arboré, vous apportera quiétude et repos.
                         Enfin, de par sa localisation le centre-ville n’est qu’à 5 km et les premières plages de Cala Rossa, de Saint Cyprien et de bien d’autres à 6.5 km.</p>
 
-                    <a class="btn btn-grey btn-md ml-0" href="#" role="button">Découvrir la maison<i class="fa fa-home ml-2"></i></a>
+                    <a class="btn btn-grey btn-md ml-0" href="{{ path('maison') }}" role="button">Découvrir la maison<i class="fa fa-home ml-2"></i></a>
 
                 </div>
                 <!--Grid column-->
