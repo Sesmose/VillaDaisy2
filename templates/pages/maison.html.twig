@@ -36,6 +36,7 @@
                 height:400px;
             }
 
+
     </style>
 {% endblock %}
 
@@ -171,30 +172,22 @@
          <section class=" mt-5">
                 <h2>Réglement intérieur</h2>
                 <hr class="blue-grey accent-2 mb-4 mt-0  d-inline-block mx-auto" style="width: 200px;">
-                <div id="map">
-                <!-- Ici s'affichera la carte -->
-                </div>
+                <ul class="list-group-flush">
+                    <li class="list-group-item">
+                    <i class="fas fa-swimming-pool"></i> Piscine chauffée et sécurisée
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-wifi"></i> Wi-Fi
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-utensils"></i> Cuisine équipée
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-tv"></i> Télévision écran plat HD
+                    </li>
+            </ul>
         
         
-        </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -341,6 +334,26 @@
     </div>
 
 
+
+
+<!-- Modal -->
+<div class="modal fade right" id="reserver" tabindex="-1" role="dialog" aria-labelledby="reserverLabel" aria-hidden="true" data-backdrop='false'>
+  <div class="modal-dialog modal-sm modal-side modal-bottom-right text-center" role="document"  style="width: 200px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reserverLabel">Envie de réserver ? Cliquez le bouton !</h5>
+        <button type="button" id="close1" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <a class="btn btn-success" href="{{ path('demande_new') }}">Réservez</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+
 {% endblock %}
 
 {% block javascripts %}
@@ -378,7 +391,15 @@
 
         });
 
+
+
     });
+    if($(window).width() >= 800){
+
+            $('#reserver').modal('show');
+    }     
+           
+       
 
 
 
@@ -406,7 +427,8 @@
             window.onload = function(){
 		// Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
 		initMap(); 
-            };
+
+            }
 
 </script>
 {% endblock %}
