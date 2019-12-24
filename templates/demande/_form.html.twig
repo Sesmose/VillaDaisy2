@@ -32,6 +32,7 @@
 									{{ form_row(form.date_debut, { attr:{ class:'js-datepicker' } }) }}
 									{{ form_row(form.date_fin) }}
 									{{ form_widget(form) }}
+									 <div class="g-recaptcha mb-2" data-sitekey="6Le08ccUAAAAAHil528bqbehsEYl366D2uAuggJm"></div>
 									<button class="btn btn-dark btn-md btn-block ml-0 mb-0">{{ button_label|default('Valider') }}</button>
 									{{ form_end(form) }}
 
@@ -59,9 +60,6 @@
 
 
 	</div>
-    {{ form_widget(form) }}
-    <div class="g-recaptcha" data-sitekey="6Le08ccUAAAAAHil528bqbehsEYl366D2uAuggJm"></div>
-    <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
 {% block javascripts%}
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
