@@ -1,10 +1,98 @@
 {% extends 'base.html.twig' %}
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %}
+        <style>
+        body{
+            background-color: #90a4ae;
+        }
+
+        .card-image{
+            background: no-repeat;
+            margin-right: 0 !important;
+        }
+        .card-deck{
+            margin-bottom: 10vh;
+        }
+        </style>
+
+
+{% endblock %}
 {% block title %}Activités{%  endblock %}
 
 
 {% block body %}
 
+  <section class="text-white text-center mt-5">
+    
+    <!-- Section heading -->
+    <h1 class="font-weight-bold mb-4 pb-2">Les Activités</h1>
+    <!-- Section description -->
+    <h3 class="w-responsive mx-auto mb-5">Retrouvez toutes les activités à proximité de la villa.</h3>
+    </section>
+
+
+<div class="card-deck ">
+
+
+            <!--Section: Content-->
+
+            <!-- Card -->
+            <div class="card card-image" style="background-image: url({{ asset('medias/sport.jpg')}});">
+
+            <!-- Content -->
+            <div class="text-white text-center d-flex align-items-center rgba-black-light py-5 px-4">
+                <div>
+                <h5 class="white-text"><i class="fas fa-hiking"></i> </h5>
+                <h3 class="card-title"><strong>Sportives</strong></h3>
+                <p>Pour les amoureux de sport la Corse regorge d'activités sportives et de terrain de jeux.
+                
+                </p>
+                <a href="https://www.tripadvisor.fr/Attractions-g1497688-Activities-c61-Lecci_Porto_Vecchio_Corse_du_Sud_Corsica.html"class="btn btn-dark"><i class="fas fa-clone left"></i> Voir les activités</a>
+                </div>
+            </div>
+
+            </div>
+            <!-- Card -->
+
+
+
+            <!-- Card -->
+            <div class="card card-image" style="background-image: url({{ asset('medias/adeux.jpg')}});">
+
+            <!-- Content -->
+            <div class="text-white text-center d-flex align-items-center rgba-black-light py-5 px-4">
+                <div>
+                <h5 class="white-text"><i class="fas fa-heart"></i> </h5>
+                <h3 class="card-title"><strong>En amoureux</strong></h3>
+                <p>Restaurants, sorties insolites, les couples sauront apprécier ces différentes activités inoubliables.
+                
+                </p>
+                <a href="https://www.tripadvisor.fr/Restaurants-g1497688-Lecci_Porto_Vecchio_Corse_du_Sud_Corsica.html" class="btn btn-dark"><i class="fas fa-clone left"></i> Voir les activités</a>
+                </div>
+            </div>
+
+            </div>
+            <!-- Card -->
+
+
+            <!-- Card -->
+            <div class="card card-image" style="background-image: url({{ asset('medias/nature.jpg')}});">
+
+            <!-- Content -->
+            <div class="text-white text-center d-flex align-items-center rgba-black-light py-5 px-4">
+                <div>
+                <h5 class="white-text"><i class="fas fa-tree"></i> </h5>
+                <h3 class="card-title"><strong>Natures</strong></h3>
+                <p> Ceux ayant envie de se ressourcer et/ou de profiter de cette 
+                nature incroyable ne seront pas deçus.
+                
+                </p>
+                <a href="https://www.abritel.fr/guides-voyage/destinations/locations-vacances-france/top-10-sites-naturels-corse" class="btn btn-dark"><i class="fas fa-clone left"></i> Voir les activités</a>
+                </div>
+            </div>
+
+            </div>
+            <!-- Card -->
+</div>
 
 
 
