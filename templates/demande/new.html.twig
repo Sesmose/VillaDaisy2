@@ -211,10 +211,11 @@
 	</script>
     <script>
         jQuery(document).ready(function() {
-                $('.js-datepicker').datepicker({
-                format: 'yyyy-mm-dd',
-                language: "fr-FR",
-                todayHighlight: true,
+            $('.js-datepicker').datepicker({
+			format: 'yyyy-mm-dd',
+            language: "fr",
+            todayHighlight: true,
+            daysOfWeekDisabled: [1,2,3,4,5,0],
                 });
 
 

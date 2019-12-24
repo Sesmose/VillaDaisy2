@@ -59,8 +59,12 @@
 
 
 	</div>
+    {{ form_widget(form) }}
+    <div class="g-recaptcha" data-sitekey="6Le08ccUAAAAAHil528bqbehsEYl366D2uAuggJm"></div>
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
 {% block javascripts%}
-
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script type="text/javascript">
 
 </script>

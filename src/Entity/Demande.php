@@ -51,7 +51,7 @@ class Demande {
 	private $email;
 
 	/**
-	 * @ORM\Column(type="integer")
+	 * @ORM\Column(type="string")
 	 */
 	private $telephone;
 
@@ -178,36 +178,35 @@ class Demande {
 		return $this->created_at;
 	}
 
-    /**
-     * @ORM\PrePersist
-     */
-	public function setCreatedAt(){
-        try {
-            $this->created_at = new \DateTime('now', new \DateTimeZone("Europe/Paris"));
-        } catch (\Exception $e) {
-        }
+	/**
+	 * @ORM\PrePersist
+	 */
+	public function setCreatedAt() {
+		try {
+			$this->created_at = new \DateTime('now', new \DateTimeZone("Europe/Paris"));
+		} catch (\Exception $e) {
+		}
 
-        return $this;
+		return $this;
 	}
 
-	public function getUpdatedAt():  ? \DateTimeInterface {
+	public function getUpdatedAt() :  ? \DateTimeInterface {
 		return $this->updated_at;
 	}
-    /**
-     * @ORM\PreUpdate()
-     */
-	public function setUpdatedAt(){
-        try {
-            $this->updated_at = new \DateTime('now', new \DateTimeZone("Europe/Paris"));
-        } catch (\Exception $e) {
-        }
+	/**
+	 * @ORM\PreUpdate
+	 */
+	public function setUpdatedAt() {
+		try {
+			$this->updated_at = new \DateTime('now', new \DateTimeZone("Europe/Paris"));
+		} catch (\Exception $e) {
+		}
 
-        return $this;
+		return $this;
 	}
 
-	public function __toString()
-    {
-       return $this->ville;
-    }
+	public function __toString() {
+		return $this->nom . ' ' . $this->prenom;
+	}
 
 }
