@@ -8,6 +8,7 @@
         "captcha-com/symfony-captcha-bundle": "4.*",
         "easycorp/easyadmin-bundle": "^2.3",
         "gedmo/doctrine-extensions": "^2.4",
+        "google/apiclient": "2.0",
         "google/recaptcha": "^1.2",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "4.3.*",

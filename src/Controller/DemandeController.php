@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Booking;
 use App\Entity\Demande;
 use App\Form\DemandeType;
+use App\Repository\BookingRepository;
 use App\Repository\DemandeRepository;
+use App\Service\CalendarService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -104,7 +106,7 @@ class DemandeController extends AbstractController {
 	}
 
 	/**
-	 * @Route("/{id}/edit", name="demande_edit", methods={"GET","POST"})
+	 * @Route("/edit/{id}", name="demande_edit", methods={"GET","POST"})
 	 */
 	public function edit(Request $request, Demande $demande): Response{
 		$form = $this->createForm(DemandeType::class, $demande);
@@ -139,19 +141,49 @@ class DemandeController extends AbstractController {
 	/**
 	 * @Route("/accept/{id}", name="demande_accept")
 	 */
-	public function accept(Demande $demande) {
-		$demande->getId();
-		$booking = new Booking;
+	public function accept(Demande $demande, BookingRepository $bookingRepository) {
+		if ($bookingRepository->findByBeginAt($demande->getDateDebut()) == NULL) {
 
-		$booking->setBeginAt($demande->getDateDebut());
-		$booking->setEndAt($demande->getDateFin());
-		$booking->setTitle($demande->getNom() . ' ' . $demande->getPrenom());
+			$demande->getId();
+			$booking = new Booking;
+			$service = CalendarService::service();
 
-		$entityManager = $this->getDoctrine()->getManager();
+			$booking->setBeginAt($demande->getDateDebut());
+			$booking->setEndAt($demande->getDateFin());
+			$booking->setTitle($demande->getNom() . ' ' . $demande->getPrenom());
+			$booking->setDescription('Réservation  ' . $demande->getNom() . ' ' . $demande->getPrenom() . ' 0' . $demande->getTelephone() . ' ' . $demande->getEmail());
+			$booking->setDemande($demande);
 
-		$entityManager->persist($booking);
+			$entityManager = $this->getDoctrine()->getManager();
 
-		$entityManager->flush();
+			$entityManager->persist($booking);
+			$calendarId = 'primary';
+
+			//Création d'un nouvel event et définition des valeurs attendues par la base de donnée de Google
+			$event = new \Google_Service_Calendar_Event([
+				'summary' => $booking->getTitle(),
+				'description' => $booking->getDescription(),
+				//Formatage de la date pour le bon fuseau horraire.
+				'start' => ['dateTime' => date_format($booking->getBeginAt(), "Y-m-d\TH:i:s"),
+					'timeZone' => 'Europe/Paris'],
+				'end' => ['dateTime' => date_format($booking->getEndAt(), "Y-m-d\TH:i:s"),
+					'timeZone' => 'Europe/Paris'],
+			]);
+			//création d'évenement du coté de google
+			$results = $service->events->insert($calendarId, $event);
+			//écriture en bdd de l'id de cet évènement google pour pouvoir le modifier par la suite
+			$booking->setGoogleid($results->getId());
+
+			$entityManager->flush();
+
+		} else {
+
+			$this->addFlash(
+				'danger',
+				'Il y a déjà une réservation commençant le ' . date_format($demande->getDateDebut(), "d-m-Y"),
+			);
+
+		}
 
 		return $this->redirectToRoute('booking_index');
 	}

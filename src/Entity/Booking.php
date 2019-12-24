@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Demande;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -45,7 +46,17 @@ class Booking {
 	protected $updated_at;
 
 	/**
-	 * @ORM\OneToOne(targetEntity="App\Entity\Demande", cascade={"persist", "remove"})
+	 * @ORM\Column(type="text", nullable=true)
+	 */
+	private $description;
+
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $googleid;
+
+	/**
+	 * @ORM\OneToOne(targetEntity="App\Entity\Demande")
 	 */
 	private $Demande;
 
@@ -86,6 +97,7 @@ class Booking {
 	public function getCreatedAt():  ? \DateTimeInterface {
 		return $this->created_at;
 	}
+
 	/**
 	 * @ORM\PrePersist
 	 */
@@ -101,6 +113,7 @@ class Booking {
 	public function getUpdatedAt() :  ? \DateTimeInterface {
 		return $this->updated_at;
 	}
+
 	/**
 	 * @ORM\PreUpdate
 	 */
@@ -122,6 +135,27 @@ class Booking {
 
 		return $this;
 	}
+
+	public function getGoogleid() :  ? string {
+		return $this->googleid;
+	}
+
+	public function setGoogleid(string $googleid) : self{
+		$this->googleid = $googleid;
+
+		return $this;
+	}
+
+	public function getDescription():  ? string {
+		return $this->description;
+	}
+
+	public function setDescription( ? string $description) : self{
+		$this->description = $description;
+
+		return $this;
+	}
+
 	public function __toString() {
 		return $this->title;
 	}
