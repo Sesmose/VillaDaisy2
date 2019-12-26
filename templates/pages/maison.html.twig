@@ -388,7 +388,7 @@
   <div class="modal-dialog modal-sm modal-side modal-bottom-right text-center" role="document"  style="width: 200px;">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="reserverLabel">Envie de réserver ? Cliquez le bouton !</h5>
+        <h5 class="modal-title" id="reserverLabel">Envie de réserver ? Cliquez sur ce bouton !</h5>
         <button type="button" id="close1" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -438,16 +438,16 @@
 
         });
 
-
+            
+            
 
     });
-    if($(window).width() >= 800){
 
-            $('#reserver').modal('show');
-    }     
-           
-       
-
+        $(window).scroll(function() {
+            if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+             $('#reserver').modal('show');
+    }
+    });
 
 
             // On initialise la latitude et la longitude de Paris (centre de la carte)
