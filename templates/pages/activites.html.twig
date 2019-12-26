@@ -2,7 +2,10 @@
 {% block stylesheets %}
         <style>
         body{
-            background-color: #90a4ae;
+                background: #1A2980;  /* fallback for old browsers */
+                background: -webkit-linear-gradient( #26D0CE, #1A2980);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(#26D0CE, #1A2980); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                    
         }
 
         .card-image{
@@ -42,10 +45,10 @@
             <div class="text-white text-center d-flex align-items-center rgba-black-light py-5 px-4">
                 <div>
                 <h5 class="white-text"><i class="fas fa-hiking"></i> </h5>
-                <h3 class="card-title"><strong>Sportives</strong></h3><br>
+                <h3 class="card-title"><strong>Sportives</strong></h3>
                 <p>Pour les amoureux de sport la Corse regorge d'activités sportives et de terrain de jeux.
                 
-                </p>
+                </p><br>
                 <a href="https://www.tripadvisor.fr/Attractions-g1497688-Activities-c61-Lecci_Porto_Vecchio_Corse_du_Sud_Corsica.html"class="btn btn-dark"><i class="fas fa-clone left"></i> Voir les activités</a>
                 </div>
             </div>
@@ -56,14 +59,14 @@
 
 
             <!-- Card -->
-            <div class="card card-image" style="background-image: url({{ asset('medias/adeux.jpg')}});">
+            <div class="card card-image" style="background-image: url({{ asset('medias/restaurant.jpg')}});">
 
             <!-- Content -->
             <div class="text-white text-center d-flex align-items-center rgba-black-light py-5 px-4">
                 <div>
-                <h5 class="white-text"><i class="fas fa-heart"></i> </h5>
-                <h3 class="card-title"><strong>En amoureux</strong></h3>
-                <p>Restaurants, sorties insolites, les couples sauront apprécier ces différentes activités inoubliables.
+                <h5 class="white-text"><i class="fas fa-hamburger"></i> </h5>
+                <h3 class="card-title"><strong>Gastronomie</strong></h3>
+                <p>Retrouvez les meilleurs restaurants à proximité de la villa, pour un dîner romantique ou un repas entre amis.
                 
                 </p>
                 <a href="https://www.tripadvisor.fr/Restaurants-g1497688-Lecci_Porto_Vecchio_Corse_du_Sud_Corsica.html" class="btn btn-dark"><i class="fas fa-clone left"></i> Voir les activités</a>

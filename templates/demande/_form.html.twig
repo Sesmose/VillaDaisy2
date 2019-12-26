@@ -1,10 +1,11 @@
-
 {% block stylesheet %}
 
 	<style type="text/css">
 		
 
-
+		.resa{
+			background-color: rgba(0,0,0,0.3)
+		}
 
 	</style>
 {% endblock %}
@@ -26,14 +27,14 @@
 					<div class="row">
 						<div class="col-md-6 mb-4">
 
-							<div class="card">
-								<div class="card-body px-4">
+							<div class="card resa">
+								<div class="card-body text-white px-4">
 									{{ form_start(form) }}
 									{{ form_row(form.date_debut, { attr:{ class:'js-datepicker' } }) }}
 									{{ form_row(form.date_fin) }}
 									{{ form_widget(form) }}
 									 <div class="g-recaptcha mb-2" data-sitekey="6Le08ccUAAAAAHil528bqbehsEYl366D2uAuggJm"></div>
-									<button type="submit" class="btn btn-dark btn-md btn-block ml-0 mb-0">{{ button_label|default('Valider') }}</button>
+									<button type="submit" class="btn btn-light btn-md btn-block ml-0 mb-0">{{ button_label|default('Valider') }}</button>
 									{{ form_end(form) }}
 
 								</div>
@@ -43,9 +44,11 @@
 						<div class="col-md-5 offset-md-1 mt-md-4 mb-4 white-text">
 
 							<h5 class="font-weight-bold">Téléphone</h5>
+							<p>06 80 47 84 97</p>
 							<p class="mb-4 pb-2">06 43 14 72 35</p>
 
 							<h5 class="font-weight-bold">Email</h5>
+							<p>lionel@imogrouptournus.fr</p>
 							<p>fiona.peyrin@gmail.com</p>
 
 						</div>

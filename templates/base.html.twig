@@ -58,6 +58,7 @@
             </style>
         {% endblock %}
     </head>
+    <body>
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark elegant-color-dark scrolling-navbar">
 
@@ -86,13 +87,14 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Découvrez la Corse du Sud</a>
                     <div class="dropdown-menu mt-1" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="https://www.tripadvisor.fr/Attractions-g1497688-Activities-c61-Lecci_Porto_Vecchio_Corse_du_Sud_Corsica.html">Pour les sportifs</a>
-                        <a class="dropdown-item" href="https://www.tripadvisor.fr/Restaurants-g1497688-Lecci_Porto_Vecchio_Corse_du_Sud_Corsica.html">A deux</a>
-                        <a class="dropdown-item" href="http://www.vacances-corses.com/2011/04/14/10-visites-corse-du-sud/">Pour se ressourcer</a>
+                        <a class="dropdown-item" href="{{ path('activites') }}">Les activités</a>
+                        <a class="dropdown-item" href="https://www.tripadvisor.fr/Attractions-g1497688-Activities-c61-Lecci_Porto_Vecchio_Corse_du_Sud_Corsica.html">Sport</a>
+                        <a class="dropdown-item" href="https://www.tripadvisor.fr/Restaurants-g1497688-Lecci_Porto_Vecchio_Corse_du_Sud_Corsica.html">Gastronomie</a>
+                        <a class="dropdown-item" href="http://www.vacances-corses.com/2011/04/14/10-visites-corse-du-sud/">Nature</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Nous Contacter</a>
+                    <a class="nav-link" href="{{ path('contact') }}">Nous Contacter</a>
                 </li>
 
             </ul>
@@ -138,16 +140,16 @@
                             <a href="#!">CGU</a>
                         </li>
                         <li>
-                            <a href="#!">Notre villa</a>
+                            <a href="{{ path('maison') }}">Notre villa</a>
                         </li>
                         <li>
-                            <a href="#!">La Corse du Sud</a>
+                            <a href="{{ path('activites') }}">La Corse du Sud</a>
                         </li>
                         <li>
-                            <a href="#!">Office du tourisme de Porto-Vecchio</a>
+                            <a href="http://www.lecci-sudcorse.com/">Office du tourisme de Lecci</a>
                         </li>
                         <li>
-                            <a href="#!">Nous contacter</a>
+                            <a href="{{ path('contact') }}">Nous contacter</a>
                         </li>
                     </ul>
 
@@ -166,6 +168,7 @@
         <!-- Copyright -->
 
     </footer>
+    </body>
     <!-- Footer -->
         <!-- JQuery -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
