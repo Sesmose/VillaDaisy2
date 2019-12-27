@@ -1,20 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block stylesheets %}
-        <style>
-            body{
-                background: #1A2980;  /* fallback for old browsers */
-                background: -webkit-linear-gradient( #26D0CE, #1A2980);  /* Chrome 10-25, Safari 5.1-6 */
-                background: linear-gradient(#26D0CE, #1A2980); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                    
-            }
 
-            #container1{
-                background-color: rgba(0,0,0,0) !important;
-            }
-        
-        
-        </style>
-{% endblock %}
 {% block body %}
 
     <div id="container1" class="container my-5 mt-5 ">
@@ -185,18 +170,7 @@
 
     </div>
 
-
-
-
-
-
-
-
-
-
     {{ include('demande/_form.html.twig') }}
-
-
 
 
 
@@ -207,13 +181,16 @@
     <link rel="stylesheet" href="{{asset('bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}">
     <style>
 
-        #container1{
-            background-color: white;
-        }
+
         .hideme
         {
             opacity:0;
         }
+
+        #container1{
+                background-color: rgba(0,0,0,0) !important;
+         }
+        
     </style>
 {% endblock %}
 {% block javascripts %}
