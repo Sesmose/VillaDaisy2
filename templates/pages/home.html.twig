@@ -12,14 +12,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
     {% block stylesheets %}
 <style>
-    body, .modal{
+    body, #contact{
                 background: #1A2980;  /* fallback for old browsers */
                 background: -webkit-linear-gradient( #26D0CE, #1A2980);  /* Chrome 10-25, Safari 5.1-6 */
                 background: linear-gradient(#26D0CE, #1A2980); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
                     
     }
 
-    .modal-content{
+    #contact{
         color: white;
     }
     footer{
@@ -310,7 +310,7 @@
                     <div class="view overlay z-depth-1-half">
                         <img src="{{ asset('medias/Corse/activite.jpg') }}" class="img-fluid"
                              alt="activites en Corse">
-                        <a href="#">
+                        <a href="{{ path('activites') }}">
                             <div class="mask rgba-white-light"></div>
                         </a>
                     </div>
@@ -330,7 +330,7 @@
                         Mais en parler ne suffit pas, découvrez toutes les activités en détails grâce à ce lien.
                     </p>
 
-                    <a class="btn btn-grey btn-md ml-0" href="#" role="button">Découvrir les activités<i class="fa fa-hiking ml-2"></i></a>
+                    <a class="btn btn-grey btn-md ml-0" href="{{ path('activites') }}" role="button">Découvrir les activités<i class="fa fa-hiking ml-2"></i></a>
 
                 </div>
                 <!--Grid column-->
@@ -360,15 +360,14 @@
                 <!--Grid column-->
                 <div class="col-md-6 mb-4 mb-md-0">
 
-                    <h3 class="font-weight-bold">La Nature</h3>
+                    <h3 class="font-weight-bold">Tarifs et Réservation</h3>
 
                     <p class="text-muted">
-                        La Corse est connue et reconnue pour ses paysages à couper le souffle ainsi que ses magnifiques golfes et criques .
-                        Amoureux de la nature et désireux de se reconnecter avec la faune et la flore seront ravis de passer quelques temps sur cette
-                        île paradisiaque.
+                        Si vous souhaitez réserver ou tout simplement vous renseignez sur les tarifs, vous trouverez sur cette page la liste 
+                        des tarifs par période ainsi qu'un formulaire de demande de réservation. 
                     </p>
 
-                    <a class="btn btn-grey btn-md ml-0" href="#" role="button">Découvrir la Corse<i class="fa fa-leaf ml-2"></i></a>
+                    <a class="btn btn-grey btn-md ml-0" href="{{ path('demande_new') }}" role="button">Découvrir les tarifs<i class="fa fa-hotel ml-2"></i></a>
 
                 </div>
                 <!--Grid column-->
@@ -380,7 +379,7 @@
                     <div class="view overlay z-depth-1-half">
                         <img src="{{ asset('medias/Corse/P1090673.JPG') }}" class="img-fluid"
                              alt="nature Corse">
-                        <a href="#">
+                        <a href="{{ path('demande_new') }}">
                             <div class="mask rgba-white-light"></div>
                         </a>
                     </div>
@@ -487,8 +486,8 @@
     <!-- Footer Links -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2018 Copyright:
-        <a href="https://mdbootstrap.com/education/bootstrap/">WebForce3</a>
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+        <a href="https://mdbootstrap.com/education/bootstrap/">Arnaud Padula et Charly Picard</a>
     </div>
     <!-- Copyright -->
 
@@ -507,11 +506,12 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/js/mdb.min.js"></script>
 {% block javascripts %}
     <script type="text/javascript">
-
+        $(document).ready(function(){
         new WOW().init();
        $('.carousel').carousel({
            interval: 3000,
            pause: true
+       });
        });
     </script>
 

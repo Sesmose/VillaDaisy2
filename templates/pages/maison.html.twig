@@ -52,7 +52,7 @@
 
 {% block body %}
 
-    <div class="container p-5 my-5">
+    <div class="container my-md-5 mt-5 my-5">
 
 
         <!--Section: Content-->
@@ -408,6 +408,7 @@
 
 {% block javascripts %}
 <script>
+    $(document).ready(function(){
     $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
         var next = $(this).next();
         if (!next.length) {
@@ -442,12 +443,12 @@
         });
 
             
-            
+    });
 
     });
 
         $(window).scroll(function() {
-            if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+            if($(window).scrollTop() + $(window).height() > $(document).height() - 100 && $(window).width() >= 768) {
              $('#reserver').modal('show');
     }
     });
