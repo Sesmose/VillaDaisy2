@@ -1,29 +1,38 @@
 {% extends 'base.html.twig' %}
+
 {% block title 'Se connecter' %}
 
 {% block body %}
-    <div class="container mt-4">
+    <div class="container mt-5 mb-5 align-items-center">
             {% if error %}
             <div class="alert alert-danger">
                 {{ error.messageKey | trans(error.messagedata, 'security') }}
             </div>
         {% endif %}
-        <form action="{{ path('login') }}" method="post">
-            <div class="form-group">
-                <label for="username">Nom d'utilisateur</label>
-                <input type="text" id="username" name="_username" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="_email" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="_password" class="form-control">
-            </div>
-
-
-            <button type="submit" class="btn btn-grey">Se connecter</button>
-        </form>
+    <div class="card elegant-color-dark">
+        <div class="card-body">
+            <form action="{{ path('login') }}" method="post" class="text-white">
+                <div class="form-group col-lg-6 pb-3">
+                    <label for="username">Nom d'utilisateur</label>
+                    <input type="text" id="username" name="_username" class="form-control">
+                </div>
+                <div class="form-group col-lg-6 pb-3">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="_email" class="form-control">
+                </div>
+                <div class="form-group col-lg-6 pb-3">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="_password" class="form-control">
+                </div>
+                <div class="form-group col-lg-6">
+                <button type="submit" class="btn btn-light">Se connecter</button>
+                </div>
+            </form>
+        </div>
     </div>
+    </div>
+
+
+
+    
 {% endblock %}
