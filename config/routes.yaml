@@ -20,4 +20,3 @@ captcha_routing:
 activites:
   path: /activites
   controller: App\Controller\ActivitesController::index
-

@@ -6,6 +6,9 @@
 #        - App\Entity\User
 
 easy_admin:
+  user:
+    display_name: true
+  
   formats:
     date:     'd/m/Y'
     datetime: 'd/m/Y H:i:s'
@@ -56,6 +59,9 @@ easy_admin:
 #DESIGN ET MODIFICATION DES LABELS
   site_name: 'Villa Daisy'
   design:
+    assets:
+      css:
+         - 'css/admin.css'
     form_theme:
       - '@EasyAdmin/form/bootstrap_4.html.twig'
     menu:
@@ -73,8 +79,8 @@ easy_admin:
       - label: 'Plan du site'
         icon: 'sitemap'
         children:
-          - { label: 'Accueil', icon: 'home', route: 'home'}
+          - { label: 'Accueil', icon: 'fal fa-leaf', route: 'home'}
           - { label: 'Villa', icon: 'home', route: 'home'}
           - { label: 'Activités', icon: 'hiking', route: 'home'}
           - { label: 'Nature', icon: 'leaf', route: 'home'}
-    brand_color: '#37474f'
+    
