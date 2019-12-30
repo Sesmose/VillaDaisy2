@@ -22,13 +22,65 @@ class BookingController extends AbstractController {
 
 		$service = CalendarService::service();
 		$results = $service->events->listEvents('primary');
+		//$req = $service->events->listEvents('primary')->getId();
 		//Récupération de toutes les valeurs des évènement GoogleCalendar
 		$events = $results->getItems();
 
+		$bookings = $bookingRepository->findAll();
+
 		foreach ($events as $event) {
+
+			foreach ($bookings as $booking) {
+
+				if ($event->getId() !== $booking->getGoogleid()) {
+
+					dump($booking->getTitle());
+				}
+
+			}
+
+			if ($bookingRepository->findOneByGoogleid($event->getId())) {
+
+				$booking = $bookingRepository->findOneByGoogleid($event->getId());
+
+				if ($booking->getTitle() !== $event->getSummary() || $booking->getDescription() !== $event->getDescription() || date_format($booking->getBeginAt(), "Y-m-d\TH:i:s+01:00") !== $event->getStart()->getDateTime() || date_format($booking->getEndAt(), "Y-m-d\TH:i:s+01:00") !== $event->getEnd()->getDateTime()) {
+
+					if ($booking->getTitle() !== $event->getSummary()) {
+
+						$booking->setTitle($event->getSummary());
+
+						$this->getDoctrine()->getManager()->flush();
+
+					}
+					if ($booking->getDescription() !== $event->getDescription()) {
+
+						$booking->setDescription($event->getDescription());
+
+						$this->getDoctrine()->getManager()->flush();
+
+					}
+					if (date_format($booking->getBeginAt(), "Y-m-d\TH:i:s+01:00") !== $event->getStart()->getDateTime()) {
+
+						$booking->setBeginAt(
+							new \DateTime($event->getStart()->getDateTime(), new \DateTimeZone('Europe/Paris')));
+
+						$this->getDoctrine()->getManager()->flush();
+
+					}
+					if (date_format($booking->getEndAt(), "Y-m-d\TH:i:s+01:00") !== $event->getEnd()->getDateTime()) {
+
+						$booking->setEndAt(
+							new \DateTime($event->getEnd()->getDateTime(), new \DateTimeZone('Europe/Paris')));
+
+						$this->getDoctrine()->getManager()->flush();
+
+					}
+
+				}
+
+			}
 			//utilisation de Doctrine pour savoir si l'évènement existe déjà
 			if ($bookingRepository->findOneByGoogleid($event->getId()) == NULL) {
-
 				$booking = new Booking();
 
 				$booking->setTitle($event->getSummary());
@@ -46,10 +98,6 @@ class BookingController extends AbstractController {
 				$entityManager->flush();
 
 			};
-
-			/*if ($bookingRepository->findOneByGoogleid($event->getId())){
-
-			}*/
 
 		};
 
