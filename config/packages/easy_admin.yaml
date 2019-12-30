@@ -21,7 +21,7 @@ easy_admin:
       class: App\Entity\Booking
       form:
         fields:
-          - { property: 'beginAt'}
+          - { property: 'beginAt', label: 'date_début'}
           - { property: 'endAt'}
           - { property: 'title'}
           - { property: 'Demande'}

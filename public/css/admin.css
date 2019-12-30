@@ -5,22 +5,3 @@
     /* make the base font size smaller */
     /* remove all border radius to make corners straight */
 }
-body{
-    background-color: #23272D;
-}
-.main-sidebar{
-    font-size: 1.2em;
-    background-color: #F7F6F7;
-    border-radius: 5px;
-}
-.main-header #header-logo a, .navbar-custom-menu .user{
-    color: #F7F6F7;
-}
-.main-sidebar a{
-    padding: 4px 5px 10px 2px;
-}
-
-.treeview-menu a{
-    padding: 3px 5px 3px 28px;
-    font-size: 0.9em;
-}

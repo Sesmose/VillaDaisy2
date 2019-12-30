@@ -1,31 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block title 'Se connecter' %}
-
+{% block stylesheets %}
+{{ parent() }}
+    <style>
+        .card{
+                background: rgba(0.3,0.3,0.3,0.5)
+        }
+    
+    </style>
+{% endblock %}
 {% block body %}
-    <div class="container mt-5 mb-5 align-items-center">
+    <div class="container mt-5 mb-5">
             {% if error %}
             <div class="alert alert-danger">
                 {{ error.messageKey | trans(error.messagedata, 'security') }}
             </div>
         {% endif %}
-    <div class="card elegant-color-dark">
+    <div class="card">
         <div class="card-body">
             <form action="{{ path('login') }}" method="post" class="text-white">
                 <div class="form-group col-lg-6 pb-3">
-                    <label for="username">Nom d'utilisateur</label>
+                    <label for="username">Nom d'utilisateur :</label>
                     <input type="text" id="username" name="_username" class="form-control">
                 </div>
                 <div class="form-group col-lg-6 pb-3">
-                    <label for="email">Email</label>
+                    <label for="email">Email :</label>
                     <input type="email" id="email" name="_email" class="form-control">
                 </div>
                 <div class="form-group col-lg-6 pb-3">
-                    <label for="password">Mot de passe</label>
+                    <label for="password">Mot de passe :</label>
                     <input type="password" id="password" name="_password" class="form-control">
                 </div>
                 <div class="form-group col-lg-6">
-                <button type="submit" class="btn btn-light">Se connecter</button>
+                <button type="submit" class="btn btn-outline-light">Se connecter</button>
                 </div>
             </form>
         </div>
