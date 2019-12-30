@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\HasLifecycleCallbacks()
  */
 class Booking {
+
 	/**
 	 * @ORM\Column(type="integer")
 	 * @ORM\GeneratedValue
