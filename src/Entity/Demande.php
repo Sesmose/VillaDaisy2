@@ -37,31 +37,48 @@ class Demande {
 
 	/**
 	 * @ORM\Column(type="string", length=100)
+	 * @Assert\NotBlank
+	 * @Assert\Regex(
+     * pattern="/\d/",
+     * match=false,
+     * message="Votre nom ne peut contenir de nombres."
+     * )
 	 */
 	private $nom;
 
 	/**
 	 * @ORM\Column(type="string", length=100)
+	 * @Assert\NotBlank
+	 * @Assert\Regex(
+     * pattern="/\d/",
+     * match=false,
+     * message="Votre nom ne peut contenir de nombres."
+     * )
 	 */
 	private $prenom;
 
 	/**
 	 * @ORM\Column(type="string", length=255)
+	 * @Assert\Email(
+	 * 		message= "L'email '{{ value }}' n'est pas correct.")
 	 */
 	private $email;
 
 	/**
 	 * @ORM\Column(type="string")
+	 * 
 	 */
 	private $telephone;
 
 	/**
 	 * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank
 	 */
 	private $adresse;
 
 	/**
 	 * @ORM\Column(type="string", length=100)
+	 * @Assert\NotBlank
 	 */
 	private $ville;
 
