@@ -1,0 +1,11 @@
+easy_admin:
+  site_name: 'Villa Daisy'
+  formats:
+    datetime: 'd/m/Y H:i:s'
+    date: 'd/m/Y'
+    time: 'H:i'
+    number: '%.2f'
+  list:
+    collapse_actions: true
+    batch_actions:
+      delete: { name: delete, label: 'Supprimer', icon: trash }

@@ -66,6 +66,8 @@ class Demande {
 
 	/**
 	 * @ORM\Column(type="string")
+	 * @Assert\NotBlank
+	 * @Assert\Regex("/^((\+)33|0)[1-9](\d{2}){4}$/")
 	 * 
 	 */
 	private $telephone;
@@ -151,11 +153,11 @@ class Demande {
 		return $this;
 	}
 
-	public function getTelephone():  ? int {
+	public function getTelephone():  ? string {
 		return $this->telephone;
 	}
 
-	public function setTelephone(int $telephone) : self{
+	public function setTelephone(string $telephone) : self{
 		$this->telephone = $telephone;
 
 		return $this;

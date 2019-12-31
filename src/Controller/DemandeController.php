@@ -139,7 +139,7 @@ class DemandeController extends AbstractController {
 	}
 
 	/**
-	 * @Route("/accept/{id}", name="demande_accept")
+	 * @Route(path = "golf/demande/{id}/Valider", name="Valider")
 	 */
 	public function accept(Demande $demande, BookingRepository $bookingRepository) {
 		if ($bookingRepository->findByBeginAt($demande->getDateDebut()) == NULL) {

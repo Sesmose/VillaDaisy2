@@ -1,0 +1,22 @@
+easy_admin:
+  design:
+    assets:
+    menu:
+        - label: 'Calendrier'
+          icon: 'calendar'
+          children:
+            - { label: 'Mon Calendrier', icon: 'calendar', route: 'booking_index'}
+            - { label: 'Liste des réservations', icon: 'list', entity: 'Booking'}
+        - label: 'Demande'
+          icon: 'user'
+          children:
+            - { label: 'Liste des demandes', icon: 'list', entity: 'Demande'}
+
+        - label: 'Plan du site'
+          icon: 'sitemap'
+          children:
+            - { label: 'Accueil', icon: 'fal fa-leaf', route: 'home'}
+            - { label: 'Villa', icon: 'home', route: 'home'}
+            - { label: 'Activités', icon: 'hiking', route: 'home'}
+            - { label: 'Nature', icon: 'leaf', route: 'home'}
+    

@@ -34,7 +34,7 @@ class BookingController extends AbstractController {
 
 				if ($event->getId() !== $booking->getGoogleid()) {
 
-					dump($booking->getTitle());
+			
 				}
 
 			}
@@ -121,7 +121,7 @@ class BookingController extends AbstractController {
 
 			$entityManager = $this->getDoctrine()->getManager();
 			$entityManager->persist($booking);
-
+			
 			//Définition du Calendrier google
 			$calendarId = 'primary';
 
@@ -139,11 +139,12 @@ class BookingController extends AbstractController {
 			$results = $service->events->insert($calendarId, $event);
 			//écriture en bdd de l'id de cet évènement google pour pouvoir le modifier par la suite
 			$booking->setGoogleid($results->getId());
-
+				
 			$entityManager->flush();
 
 			return $this->redirectToRoute('booking_index');
 		}
+		
 
 		return $this->render('booking/new.html.twig', [
 			'booking' => $booking,
