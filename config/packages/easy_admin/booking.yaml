@@ -1,0 +1,57 @@
+easy_admin:
+  entities:
+    Booking:
+      class: App\Entity\Booking
+      controller: App\Controller\BookingBackController
+      label: 'Réservation'
+      new:
+        title: 'Créer une nouvelle %%entity_label%%'
+        fields:
+          - { type: 'group', columns: 6, label: 'Informations', icon: 'info' }
+          - { property: 'title', label: 'Titre' }
+          - { property: 'description', label: 'Description' }
+          - { type: 'group', columns: 6, label: 'Paramètres', icon: 'users' }
+          - { property: 'beginat', label: 'Commence le ', type: 'datetime', type_options: { widget: 'single_text' } }
+          - { property: 'endat', label: 'Fini le ', type: 'datetime', type_options: { widget: 'single_text' } }
+          -  property: 'demande'
+             label: 'Demande liée'
+             type: 'entity'
+             type_options:
+              class: App\Entity\Demande
+      edit:
+        title: 'Modifier la %%entity_label%% n°%%entity_id%%'
+        fields:
+          - { type: 'group', columns: 6, label: 'Informations', icon: 'info' }
+          - { property: 'title', label: 'Titre' }
+          - { property: 'description', label: 'Description' }
+          - { type: 'group', columns: 6, label: 'Paramètres', icon: 'users' }
+          - { property: 'beginat', label: 'Commence le ', type: 'datetime', type_options: { widget: 'single_text' } }
+          - { property: 'endat', label: 'Fini le ', type: 'datetime', type_options: { widget: 'single_text' } }
+      search:
+        sort: ['beginAt', 'ASC']
+      list:
+        filters:
+          - { property: 'title', label: 'Titre' }
+          - { property: 'description', label: 'Description' }
+          - { property: 'beginAt', label: 'Commence le' }
+          - { property: 'endAt', label: 'Fini le' }
+        actions:
+          show: { name: show, type: method, label: 'Plus', icon: eye }
+          edit: { name: edit, type: method, label: 'Éditer', icon: pencil }
+          delete: { name: delete, type: method, label: 'Supprimer', icon: trash }
+          new: { name: new, type: method, label: 'Ajouter une réservation', icon: plus }
+        fields:
+          - { property: 'title', label: 'Titre' }
+          - { property: 'description', label: 'Description' }
+          - { property: 'beginAt', label: 'Commence le ' }
+          - { property: 'endAt', label: 'Fini le ' }
+        title: 'Liste des %%entity_label%%s'
+        sort: ['beginAt', 'ASC']
+      show:
+        title: '%%entity_label%% n°%%entity_id%%'
+        fields:
+          - { property: 'title', label: 'Titre' }
+          - { property: 'description', label: 'Description' }
+          - { property: 'beginat', label: 'Commence le ', type: 'datetime', type_options: { widget: 'single_text' } }
+          - { property: 'endat', label: 'Fini le ', type: 'datetime', type_options: { widget: 'single_text' } }
+          - { property: 'createdat', label: 'Créé le ', type: 'datetime', type_options: { widget: 'single_text' } }

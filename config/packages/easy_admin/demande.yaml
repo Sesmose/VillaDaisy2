@@ -1,0 +1,36 @@
+easy_admin:
+  entities:
+# ENTITY DEMANDE
+    Demande:
+      class: App\Entity\Demande
+      form:
+        fields:
+          - { property: 'date_debut'}
+          - { property: 'date_fin'}
+          - { property: 'nom'}
+          - { property: 'prenom'}
+          - { property: 'email'}
+          - { property: 'telephone'}
+          - { property: 'adresse'}
+          - { property: 'ville'}
+          - { property: 'cp'}
+      help: 'Gérer les demandes'
+      label: 'Demande de réservation'
+      list:
+        fields:
+          - { property: 'nom'}
+          - { property: 'prenom'}
+          - { property: 'date_debut'}
+          - { property: 'date_fin'}
+          - { property: 'email'}
+          - { property: 'telephone'}
+        title: 'Demandes de réservation les plus récentes'
+        sort: 'created_at'
+        actions:
+          - { name: 'Valider', type: 'route' }
+        batch_actions: [ 'delete']
+      search:
+        sort: ['nom', 'ASC']
+      disabled_actions: ['edit']
+
+
