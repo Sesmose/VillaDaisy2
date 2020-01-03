@@ -56,7 +56,7 @@ class DemandeController extends AbstractController {
 				Au ' . date_format($contactFormData->getDateFin(), "d M y") . '<br/>
 				</p>
 				<p> Informations supplémentaire : <br/>
-				Tel : 0' . $contactFormData->getTelephone() . '<br/>
+				Tel : ' . $contactFormData->getTelephone() . '<br/>
 				Adresse : ' . $contactFormData->getAdresse() . '<br/>
 				Code Postal : ' . $contactFormData->getCp() . '<br/>
 				Adresse Mail : ' . $contactFormData->getEmail() . '</p>' .
@@ -151,7 +151,7 @@ class DemandeController extends AbstractController {
 			$booking->setBeginAt($demande->getDateDebut());
 			$booking->setEndAt($demande->getDateFin());
 			$booking->setTitle($demande->getNom() . ' ' . $demande->getPrenom());
-			$booking->setDescription('Réservation  ' . $demande->getNom() . ' ' . $demande->getPrenom() . ' 0' . $demande->getTelephone() . ' ' . $demande->getEmail());
+			$booking->setDescription('Réservation  ' . $demande->getNom() . ' ' . $demande->getPrenom() . ' ' . $demande->getTelephone() . ' ' . $demande->getEmail());
 			$booking->setDemande($demande);
 
 			$entityManager = $this->getDoctrine()->getManager();
