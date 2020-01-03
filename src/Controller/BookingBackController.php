@@ -67,15 +67,7 @@ class BookingBackController extends EasyAdminController {
 			$results = $service->events->insert($calendarId, $gevent);
 			//écriture en bdd de l'id de cet évènement google pour pouvoir le modifier par la suite
 			$entity->setGoogleid($results->getId());
-			$demandes = '';
-			if ($entity instanceof Booking) {
-				foreach ($entity->getDemandes() as $key => $value) {
-					if ($value->getBooking() != null) {
-						$demandes .= $value->getPrenom() . ' ,';
-					}
-					$value->setBooking($entity);
-				}
-			}
+
 			$this->addFlash('success', 'L\'évènement ' . $entity->getTitle() . ' a été ajouté avec succès !');
 
 			$this->processUploadedFiles($newForm);
@@ -213,7 +205,23 @@ class BookingBackController extends EasyAdminController {
 
 		return $this->redirectToReferrer();
 	}
+	protected function deleteBatchAction(array $ids): void{
+		$class = $this->entity['class'];
+		$primaryKey = $this->entity['primary_key_field_name'];
 
+
+		$entities = $this->em->getRepository($class)
+			->findBy([$primaryKey => $ids]);
+
+		foreach ($entities as $entity){
+			$this->em->remove($entity);
+			$service = CalendarService::service();
+			$service->events->delete('primary', $entity->getGoogleid());
+		}
+
+		$this->addFlash('success', 'Toutes les réservations sélectionnées ont été supprimés avec succès !');
+		$this->em->flush();
+	}
 	
 
 }
