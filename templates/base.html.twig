@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
+    {% block head %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Villa Daisy{% endblock %}</title>
@@ -16,6 +17,7 @@
 
 
         <link src="{{asset('maison.css')}}">
+        {% endblock %}
         {% block stylesheets %}
 
             <style>

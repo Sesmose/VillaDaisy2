@@ -1,4 +1,9 @@
 {% extends 'base.html.twig' %}
+{% block head %}
+<meta name="description" content="Retrouvez les différentes activités à proximité de la Villa Daisy. Gastronomie, Nature, Sports, il y'en aura pour tous les goûts. 
+Avec toutes ces activités vous êtes assurés de ne pas vous ennuyer !">
+{{ parent() }}
+{% endblock %}
 {% block stylesheets %}
 {{ parent() }}
         <style>
