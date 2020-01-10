@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Booking;
-use App\Entity\Demande;
 use App\Service\CalendarService;
 use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
@@ -67,6 +66,7 @@ class BookingBackController extends EasyAdminController {
 			$results = $service->events->insert($calendarId, $gevent);
 			//écriture en bdd de l'id de cet évènement google pour pouvoir le modifier par la suite
 			$entity->setGoogleid($results->getId());
+			$demandes = '';
 
 			$this->addFlash('success', 'L\'évènement ' . $entity->getTitle() . ' a été ajouté avec succès !');
 
@@ -130,7 +130,6 @@ class BookingBackController extends EasyAdminController {
 				$em = $this->getDoctrine()->getManagerForClass($class);
 				$ids = $this->getDoctrine()->getRepository(Booking::class)->findAll();
 
-
 				$service = CalendarService::service();
 
 				$gevent = $service->events->get('primary', $entity->getGoogleid());
@@ -145,10 +144,8 @@ class BookingBackController extends EasyAdminController {
 				]);
 
 				$updatedEvent = $service->events->update('primary', $entity->getGoogleid(), $gevent);
-					$this->addFlash('success', 'L\'évènement ' . $entity->getTitle() . ' a été modifié avec succcès !');
+				$this->addFlash('success', 'L\'évènement ' . $entity->getTitle() . ' a été modifié avec succcès !');
 
-
-				
 			}
 			$this->processUploadedFiles($editForm);
 			$this->dispatch(EasyAdminEvents::PRE_UPDATE, ['entity' => $entity]);
@@ -189,17 +186,16 @@ class BookingBackController extends EasyAdminController {
 			$service->events->delete('primary', $entity->getGoogleid());
 
 			$this->dispatch(EasyAdminEvents::PRE_REMOVE, ['entity' => $entity]);
-		
-			}
 
-			try {
-				$this->executeDynamicMethod('remove<EntityName>Entity', [$entity, $form]);
-			} catch (ForeignKeyConstraintViolationException $e) {
-				throw new EntityRemoveException(['entity_name' => $this->entity['name'], 'message' => $e->getMessage()]);
-			}
-			$this->addFlash('success', 'L\'évènement ' . $entity->getTitle() . ' a été supprimé avec succès !');
-			$this->dispatch(EasyAdminEvents::POST_REMOVE, ['entity' => $entity]);
-		
+		}
+
+		try {
+			$this->executeDynamicMethod('remove<EntityName>Entity', [$entity, $form]);
+		} catch (ForeignKeyConstraintViolationException $e) {
+			throw new EntityRemoveException(['entity_name' => $this->entity['name'], 'message' => $e->getMessage()]);
+		}
+		$this->addFlash('success', 'L\'évènement ' . $entity->getTitle() . ' a été supprimé avec succès !');
+		$this->dispatch(EasyAdminEvents::POST_REMOVE, ['entity' => $entity]);
 
 		$this->dispatch(EasyAdminEvents::POST_DELETE);
 
@@ -209,19 +205,4 @@ class BookingBackController extends EasyAdminController {
 		$class = $this->entity['class'];
 		$primaryKey = $this->entity['primary_key_field_name'];
 
-
-		$entities = $this->em->getRepository($class)
-			->findBy([$primaryKey => $ids]);
-
-		foreach ($entities as $entity){
-			$this->em->remove($entity);
-			$service = CalendarService::service();
-			$service->events->delete('primary', $entity->getGoogleid());
-		}
-
-		$this->addFlash('success', 'Toutes les réservations sélectionnées ont été supprimés avec succès !');
-		$this->em->flush();
-	}
-	
-
-}
+	}}
