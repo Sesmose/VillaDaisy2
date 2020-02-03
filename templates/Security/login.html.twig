@@ -21,7 +21,7 @@
         <div class="card-body">
             <form action="{{ path('login') }}" method="post" class="text-white">
                 <div class="form-group col-lg-6 pb-3">
-                    <label for="username">Nom d'utilisateur :</label>
+                    <label for="username" value="{{ last_username }}">Nom d'utilisateur :</label>
                     <input type="text" id="username" name="_username" class="form-control">
                 </div>
                 <div class="form-group col-lg-6 pb-3">

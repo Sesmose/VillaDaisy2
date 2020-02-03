@@ -1,0 +1,45 @@
+body, #contact{
+    background: #1A2980;  /* fallback for old browsers */
+    background: -webkit-linear-gradient( #26D0CE, #1A2980);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(#26D0CE, #1A2980); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            }
+
+
+
+#contact .modal-body{
+    color: black;
+}
+.navbar {
+    background-image: none;
+    background-color: rgba(0.2,0.2,0.2,0.3);
+    border-radius: 0px;
+    border: 0;
+    box-shadow: none;
+    padding: 10px;
+    /* Make the menu out of the document flow so it can placed anywhere without disturbing other widgets */
+    top: 0;
+    left: 0;
+    right: 0;
+    /* If you delete this line, your menu link won't be clicked because it is behind the background. Applying this code bring the menu in front of the background */
+}
+
+.navbar .navbar-brand {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.navbar .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus {
+    color: #ffffff;
+    background-color: transparent;
+}

@@ -32,7 +32,7 @@
 								<div class="card-body text-white px-4">
 									{{ form_start(form) }}
 									{{ form_row(form.date_debut, { attr:{ class:'js-datepicker' } }) }}
-									{{ form_row(form.date_fin) }}
+									{{ form_row(form.date_fin, { attr:{ class:'js-datepicker' } }) }}
 									{{ form_widget(form) }}
 									 <div class="g-recaptcha mb-2" data-sitekey="6Le08ccUAAAAAHil528bqbehsEYl366D2uAuggJm"></div>
 									<button type="submit" class="btn btn-light btn-md btn-block ml-0 mb-0">{{ button_label|default('Valider') }}</button>

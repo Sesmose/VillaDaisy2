@@ -1,22 +1,13 @@
 {% extends 'base.html.twig' %}
 {% block head %}
+{{ parent()}}
 <meta name="description" content="Retrouvez les différentes activités à proximité de la Villa Daisy. Gastronomie, Nature, Sports, il y'en aura pour tous les goûts. 
 Avec toutes ces activités vous êtes assurés de ne pas vous ennuyer !">
-{{ parent() }}
+
 {% endblock %}
 {% block stylesheets %}
-{{ parent() }}
-        <style>
-        .card-image{
-            background: no-repeat;
-            margin-right: 0 !important;
-        }
-        .card-deck{
-            margin-bottom: 10vh;
-        }
-        </style>
-
-
+<link href="{{ asset('css/base.css')}}" rel="stylesheet"/>
+<link href="{{ asset('css/activites.css')}}" rel="stylesheet"/>
 {% endblock %}
 {% block title %}Activités{%  endblock %}
 
@@ -44,11 +35,11 @@ Avec toutes ces activités vous êtes assurés de ne pas vous ennuyer !">
             <div class="text-white text-center d-flex align-items-center rgba-black-light py-5 px-4">
                 <div>
                 <h5 class="white-text"><i class="fas fa-hiking"></i> </h5>
-                <h3 class="card-title"><strong>Sportives</strong></h3>
+                <h3 class="card-title"><strong>Sport</strong></h3>
                 <p>Pour les amoureux de sport la Corse regorge d'activités sportives et de terrain de jeux.
                 
                 </p><br>
-                <a href="https://www.tripadvisor.fr/Attractions-g1497688-Activities-c61-Lecci_Porto_Vecchio_Corse_du_Sud_Corsica.html"class="btn btn-dark"><i class="fas fa-clone left"></i> Voir les activités</a>
+                <a href="https://www.tripadvisor.fr/Attractions-g1497688-Activities-c61-Lecci_Porto_Vecchio_Corse_du_Sud_Corsica.html"class="btn btn-light"><i class="fas fa-clone left"></i> Voir les activités</a>
                 </div>
             </div>
 
@@ -68,7 +59,7 @@ Avec toutes ces activités vous êtes assurés de ne pas vous ennuyer !">
                 <p>Retrouvez les meilleurs restaurants à proximité de la villa, pour un dîner romantique ou un repas entre amis.
                 
                 </p>
-                <a href="https://www.tripadvisor.fr/Restaurants-g1497688-Lecci_Porto_Vecchio_Corse_du_Sud_Corsica.html" class="btn btn-dark"><i class="fas fa-clone left"></i> Voir les activités</a>
+                <a href="https://www.tripadvisor.fr/Restaurants-g1497688-Lecci_Porto_Vecchio_Corse_du_Sud_Corsica.html" class="btn btn-light"><i class="fas fa-clone left"></i> Voir les activités</a>
                 </div>
             </div>
 
@@ -83,12 +74,12 @@ Avec toutes ces activités vous êtes assurés de ne pas vous ennuyer !">
             <div class="text-white text-center d-flex align-items-center rgba-black-light py-5 px-4">
                 <div>
                 <h5 class="white-text"><i class="fas fa-tree"></i> </h5>
-                <h3 class="card-title"><strong>Natures</strong></h3>
+                <h3 class="card-title"><strong>Nature</strong></h3>
                 <p> Ceux ayant envie de se ressourcer et/ou de profiter de cette 
                 nature incroyable ne seront pas deçus.
                 
                 </p>
-                <a href="https://www.abritel.fr/guides-voyage/destinations/locations-vacances-france/top-10-sites-naturels-corse" class="btn btn-dark"><i class="fas fa-clone left"></i> Voir les activités</a>
+                <a href="https://www.abritel.fr/guides-voyage/destinations/locations-vacances-france/top-10-sites-naturels-corse" class="btn btn-light"><i class="fas fa-clone left"></i> Voir les activités</a>
                 </div>
             </div>
 

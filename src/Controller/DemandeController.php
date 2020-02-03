@@ -33,7 +33,6 @@ class DemandeController extends AbstractController {
 		$demande = new Demande();
 		$form = $this->createForm(DemandeType::class, $demande);
 		$form->handleRequest($request);
-		dump('coucou');
 		if ($form->isSubmitted() && $form->isValid()) {
 			if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
 				$secret = '6Le08ccUAAAAAKO8xFICbArJbTfj2j7azcIo1Dyw';

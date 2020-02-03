@@ -17,6 +17,7 @@ class DemandeType extends AbstractType {
 				'html5' => false,
 
 				'attr' => ['class' => 'js-datepicker'],
+				'attr'=>['autocomplete' => 'off']
 			])
 			->add('date_fin', DateType::class, [
 				'widget' => 'single_text',
@@ -24,6 +25,7 @@ class DemandeType extends AbstractType {
 				'html5' => false,
 
 				'attr' => ['class' => 'js-datepicker'],
+				'attr'=>['autocomplete' => 'off']
 			])
 			->add('nom')
 			->add('prenom')

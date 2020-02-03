@@ -1,8 +1,26 @@
 {% extends 'base.html.twig' %}
 {% block head %}
+{{ parent() }}
 <meta name="description" content="Nos tarifs et demande de réservation. C'est ici que vous trouverez tous les tarifs ainsi que
 notre formulaire de contact pour effectuer une demande de réservation.">
-{{ parent() }}
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css">
+
+{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('css/base.css')}}" rel="stylesheet"/>
+    <style>
+
+
+        .hideme, .hideme2
+        {
+            opacity:0;
+        }
+
+        #container1{
+                background-color: rgba(0,0,0,0) !important;
+         }
+        
+    </style>
 {% endblock %}
 {% block body %}
 
@@ -177,73 +195,17 @@ notre formulaire de contact pour effectuer une demande de réservation.">
     {{ include('demande/_form.html.twig') }}
 
 
-
-{% block stylsheets %}
-
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css">
-     <link rel="stylesheet" href="{{asset('bootstrap/dist/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('bootstrap-datepicker/css/bootstrap-datepicker.min.css')}}">
-    <style>
-
-
-        .hideme, .hideme2
-        {
-            opacity:0;
-        }
-
-        #container1{
-                background-color: rgba(0,0,0,0) !important;
-         }
-        
-    </style>
 {% endblock %}
+
 {% block javascripts %}
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/locales/bootstrap-datepicker.fr.min.js">
 	</script>
-    <script>
-        jQuery(document).ready(function() {
-            $('.js-datepicker').datepicker({
-			format: 'yyyy-mm-dd',
-            language: "fr",
-            todayHighlight: true,
-            daysOfWeekDisabled: [1,2,3,4,5,0],
-                });
-
-
-
-
-            $(window).scroll( function(){
-
-                /* Check the location of each desired element */
-                $('.hideme').each( function(i){
-
-                    var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-                    var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-                    /* If the object is completely visible in the window, fade it in */
-                    if( bottom_of_window > bottom_of_object ){
-
-                        $(this).animate({'opacity':'1'},1500);
-
-                    }
-
-                });
-               
-                    var target = $(".hideme2").offset().top;
-                    var interval = setInterval(function() {
-                        if ($(window).scrollTop() >= target) {
-                            $(".hideme2").animate({'opacity': '1'}, 1500);
-                            clearInterval(interval);
-                        }
-                    });
-            });
-        });
-    </script>
+    <script src="{{ asset('js/demande.js')}}"></script>
 
 {% endblock %}
 
-{% endblock %}
+
 

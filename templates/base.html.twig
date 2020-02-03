@@ -15,60 +15,9 @@
         <!-- Material Design Bootstrap -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
 
-
-        <link src="{{asset('maison.css')}}">
+        <link src="{{asset('css/base.css')}}">
         {% endblock %}
         {% block stylesheets %}
-
-            <style>
-                body, #contact{
-                    background: #1A2980;  /* fallback for old browsers */
-                    background: -webkit-linear-gradient( #26D0CE, #1A2980);  /* Chrome 10-25, Safari 5.1-6 */
-                    background: linear-gradient(#26D0CE, #1A2980); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                            }
-
-
-
-                #contact{
-                            color: white;
-                        }
-                .navbar {
-                    background-image: none;
-                    background-color: rgba(0.2,0.2,0.2,0.3);
-                    border-radius: 0px;
-                    border: 0;
-                    box-shadow: none;
-                    padding: 10px;
-                    /* Make the menu out of the document flow so it can placed anywhere without disturbing other widgets */
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    /* If you delete this line, your menu link won't be clicked because it is behind the background. Applying this code bring the menu in front of the background */
-                }
-
-                .navbar .navbar-brand {
-                    color: #ffffff;
-                    font-size: 20px;
-                }
-
-                .navbar .navbar-brand:hover,
-                .navbar .navbar-brand:focus {
-                    color: #ffffff;
-                    background-color: transparent;
-                }
-
-                .navbar .navbar-nav > li > a {
-                    color: #ffffff;
-                }
-
-                .navbar .navbar-nav > li > a:hover,
-                .navbar .navbar-nav > li > a:focus {
-                    color: #ffffff;
-                    background-color: transparent;
-                }
-
-
-            </style>
         {% endblock %}
         
     </head>
@@ -123,23 +72,23 @@
             <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <div class="modal-content elegant-color-dark">
-                <div class="modal-header text-center">
-                    <h2 class="modal-title" id="exampleModalLabel">Contactez Nous</h2>
-                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <div class="modal-content">
+                <div class="modal-header text-center indigo">
+                    <h2 class="modal-title white-text" id="exampleModalLabel">Contactez Nous</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                   <h3 class="font-weight-bold">Téléphone :</h3>
-                   <hr class="white accent-2 mb-4 mt-0  d-inline-block mx-auto" style="width: 482px">
+                   <h3 class="font-weight-bold">Téléphone :</h3> 
+                   <hr class=" accent-2 mb-4 mt-0  d-inline-block mx-auto" style="width: 482px">
                    <p>06 80 47 84 97</p>
-                    <hr class="white accent-2 mb-4 mt-0  d-inline-block mx-auto" style="width: 482px">
+                    <hr class=" accent-2 mb-4 mt-0  d-inline-block mx-auto" style="width: 482px">
                    <p>06 43 14 72 35</p>
                    <h3 class="font-weight-bold">Email :</h3>
-                   <hr class="white accent-2 mb-4 mt-0  d-inline-block mx-auto" style="width: 482px">
+                   <hr class=" accent-2 mb-4 mt-0  d-inline-block mx-auto" style="width: 482px">
 					<p>lionel@imogrouptournus.fr</p>
-                     <hr class="white accent-2 mb-4 mt-0  d-inline-block mx-auto" style="width: 482px">
+                     <hr class=" accent-2 mb-4 mt-0  d-inline-block mx-auto" style="width: 482px">
 					<p>fiona.peyrin@gmail.com</p>
               
                 </div>

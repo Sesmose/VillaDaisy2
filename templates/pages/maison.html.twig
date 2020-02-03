@@ -3,55 +3,8 @@
 <meta name="description" content="Découvrez la villa Daisy en plein coeur de la Corse. Visitez cette maison construite en 2019 et faites vous une idée avant de réservez
 d'inoubliables vacances dans la Villa Daisy.">
 {{ parent() }}
+<link href="{{ asset('css/maison.css')}}" rel="stylesheet">
 {% endblock %}
-{% block stylesheets %}
-    {{ parent() }}
-    <style>
-        .carousel-multi-item.v-2 .carousel-inner .carousel-item.active,
-        .carousel-multi-item.v-2 .carousel-item-next,
-        .carousel-multi-item.v-2 .carousel-item-prev {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex; }
-        .carousel-multi-item.v-2 .carousel-item-right.active,
-        .carousel-multi-item.v-2 .carousel-item-next {
-            -webkit-transform: translateX(50%);
-            -ms-transform: translateX(50%);
-            transform: translateX(50%); }
-        .carousel-multi-item.v-2 .carousel-item-left.active,
-        .carousel-multi-item.v-2 .carousel-item-prev {
-            -webkit-transform: translateX(-50%);
-            -ms-transform: translateX(-50%);
-            transform: translateX(-50%); }
-        .carousel-multi-item.v-2 .carousel-item-right,
-        .carousel-multi-item.v-2 .carousel-item-left {
-            -webkit-transform: translateX(0);
-            -ms-transform: translateX(0);
-            transform: translateX(0); }
-
-        body{
-                background: #1A2980;  /* fallback for old browsers */
-                background: -webkit-linear-gradient( #26D0CE, #1A2980);  /* Chrome 10-25, Safari 5.1-6 */
-                background: linear-gradient(#26D0CE, #1A2980); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                    
-             }
-        .container{
-            background-color: white;
-        }
-
-         #map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
-                height:400px;
-            }
-
-        .fa-star{
-            color: #ffbb33;
-        }
-
-
-    </style>
-{% endblock %}
-
 {% block title %}La Villa{%  endblock %}
 
 
@@ -405,100 +358,10 @@ d'inoubliables vacances dans la Villa Daisy.">
 
 
 
-<!-- Modal -->
-<div class="modal fade right" id="reserver" tabindex="-1" role="dialog" aria-labelledby="reserverLabel" aria-hidden="true" data-backdrop='false'>
-  <div class="modal-dialog modal-sm modal-side modal-bottom-right text-center" role="document"  style="width: 200px;">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="reserverLabel">Envie de réserver ? Cliquez sur ce bouton !</h5>
-        <button type="button" id="close1" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-            <a class="btn btn-success" href="{{ path('demande_new') }}">Réservez</a>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Modal -->
+
 
 {% endblock %}
 
 {% block javascripts %}
-<script>
-    $(document).ready(function(){
-    $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
-        var next = $(this).next();
-        if (!next.length) {
-            next = $(this).siblings(':first');
-        }
-        next.children(':first-child').clone().appendTo($(this));
-
-        for (var i = 0; i < 4; i++) {
-            next = next.next();
-            if (!next.length) {
-                next = $(this).siblings(':first');
-            }
-            next.children(':first-child').clone().appendTo($(this));
-        }
-    });
-
-
-    $(window).scroll( function(){
-
-        /* Check the location of each desired element */
-        $('hr').each( function(i){
-
-            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-            /* If the object is completely visible in the window, fade it in */
-            if( bottom_of_window > bottom_of_object ){
-
-                $(this).animate({'opacity':'1'},500);
-            }
-
-        });
-
-            
-    });
-
-    });
-
-        $(window).scroll(function() {
-            if($(window).scrollTop() + $(window).height() > $(document).height() - 100 && $(window).width() >= 768) {
-             $('#reserver').modal('show');
-    }
-    });
-
-
-            // On initialise la latitude et la longitude de Paris (centre de la carte)
-            var lat = 41.6218101;
-            var lon = 9.3415879;
-            var macarte = null;
-            // Fonction d'initialisation de la carte
-
-            function initMap() {
-                // Nous ajoutons un marqueur
-
-                // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
-                macarte = L.map('map').setView([lat, lon], 11);
-                // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
-                L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-                    // Il est toujours bien de laisser le lien vers la source des données
-                    attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
-                    minZoom: 1,
-                    maxZoom: 20,
-                    id: 'mapbox.streets'
-                }).addTo(macarte);
-               var marker = L.marker([lat, lon]).addTo(macarte);
-            }
-            window.onload = function(){
-		// Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
-		initMap(); 
-
-            }
-
-</script>
+<script src="{{ asset('js/maison.js')}}"></script>
 {% endblock %}
