@@ -66,15 +66,15 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <!-- Slide One - Set the background image for this slide in the line below -->
-                <div class="carousel-item active" style="background-image: url('{{ asset('medias/Corse/salon_grd .jpg') }}')">
+                <div class="carousel-item active"role="option" style="background-image: url('{{ asset('medias/Corse/salon_grd .jpg') }}')">
 
                 </div>
                 <!-- Slide Two - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('{{ asset('medias/Corse/P1090664.JPG') }}')">
+                <div class="carousel-item"role="option" style="background-image: url('{{ asset('medias/Corse/P1090664.JPG') }}')">
 
                 </div>
                 <!-- Slide Three - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url('{{ asset('medias/Corse/P1090710.JPG') }}')">
+                <div class="carousel-item"role="option" style="background-image: url('{{ asset('medias/Corse/P1090710.JPG') }}')">
 
                 </div>
             </div>
@@ -129,9 +129,9 @@
 
                     <!--Image-->
                     <div class="view overlay z-depth-1-half">
-                        <img src="{{ asset('medias/Corse/P1090708.JPG') }}" class="img-fluid"
+                       <a href="{{ path('maison') }}"> <img src="{{ asset('medias/Corse/P1090708.JPG') }}" class="img-fluid"
                              alt="la Villa Daisy">
-                        <a href="{{ path('maison') }}">
+                        
                             <div class="mask rgba-white-light"></div>
                         </a>
                     </div>
@@ -163,9 +163,9 @@
 
                     <!--Image-->
                     <div class="view overlay z-depth-1-half">
+                     <a href="{{ path('activites') }}">
                         <img src="{{ asset('medias/Corse/activite.jpg') }}" class="img-fluid"
                              alt="activites en Corse">
-                        <a href="{{ path('activites') }}">
                             <div class="mask rgba-white-light"></div>
                         </a>
                     </div>
@@ -235,9 +235,9 @@
 
                     <!--Image-->
                     <div class="view overlay z-depth-1-half">
+                    <a href="{{ path('demande_new') }}">
                         <img src="{{ asset('medias/Corse/P1090673.JPG') }}" class="img-fluid"
                              alt="nature Corse">
-                        <a href="{{ path('demande_new') }}">
                             <div class="mask rgba-white-light"></div>
                         </a>
                     </div>
